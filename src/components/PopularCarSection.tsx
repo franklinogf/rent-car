@@ -1,7 +1,5 @@
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
-import { FaPeopleGroup } from 'react-icons/fa6'
-import { GiSteeringWheel } from 'react-icons/gi'
 import {
   Card,
   CardContent,
@@ -22,7 +20,7 @@ export function CarCard() {
         </div>
         <CardDescription>Sport</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className='bg-gradient-to-t from-blue-400'>
         <Image
           className='m-auto py-5'
           alt='PopularCar'
@@ -48,13 +46,29 @@ export function CarCard() {
     </Card>
   )
 }
+export function ViewAll() {
+  return (
+    <div className='flex justify-between px-10'>
+      <h2>Popular Car</h2>
+      <Button
+        variant='outline'
+        className='text-primary'
+      >
+        View All
+      </Button>
+    </div>
+  )
+}
 export default function PopularSection() {
   return (
-    <section className='mt-3 grid grid-cols-4 gap-x-5 px-10'>
-      <CarCard />
-      <CarCard />
-      <CarCard />
-      <CarCard />
+    <section className='mt-4'>
+      <ViewAll />
+      <div className='mt-3 grid grid-cols-4 gap-x-5 px-10'>
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
+      </div>
     </section>
   )
 }
