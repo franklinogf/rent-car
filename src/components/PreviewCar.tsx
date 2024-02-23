@@ -18,6 +18,7 @@ export function Car() {
         src='/cars/car2.png'
         width={320}
         height={116}
+        style={{ height: 'auto', width: 'auto' }}
       />
     </article>
   )
