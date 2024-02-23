@@ -3,7 +3,9 @@ import PreviewCar from '@/components/PreviewCar'
 export default function Page() {
   return (
     <>
-      <PreviewCar />
+      <div className='mt-4'>
+        <PreviewCar />
+      </div>
     </>
   )
 }
