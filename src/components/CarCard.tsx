@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import {
   Card,
@@ -9,14 +10,24 @@ import {
 } from '@/components/ui/card'
 import { HeartIcon, PeopleIcon, SteeringIcon } from '@/lib/Icons'
 import { Button } from '@/components/ui/button'
+import { useState } from 'react'
 
 export function CarCard() {
+  const [favorited, setFavorited] = useState(false)
+  const isFavorited = favorited ? 'stroke-0 fill-red-500' : 'stroke-1 fill-none'
+
   return (
     <Card className='w-full mt-2'>
       <CardHeader>
         <div className='flex justify-between'>
           <CardTitle>Koenigsegg</CardTitle>
-          <HeartIcon />
+          <Button
+            onClick={() => setFavorited(!favorited)}
+            variant='ghost'
+            className='rounded-full p-2'
+          >
+            <HeartIcon className={isFavorited} />
+          </Button>
         </div>
         <CardDescription>Sport</CardDescription>
       </CardHeader>
