@@ -1,10 +1,9 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
-import { FaHeart } from 'react-icons/fa'
-import { IoSettingsSharp } from 'react-icons/io5'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Logo from '@/components/Logo'
+import { HeartIcon } from '@/lib/Icons'
 
 export default function Header() {
   return (
@@ -34,14 +33,14 @@ export default function Header() {
           size='icon'
           className='rounded-full'
         >
-          <FaHeart className='size-4' />
+          <HeartIcon />
         </Button>
         <Button
           variant='ghost'
           size='icon'
           className='rounded-full'
         >
-          <IoSettingsSharp className='size-5' />
+          <HeartIcon />
         </Button>
         <Avatar>
           <AvatarImage />

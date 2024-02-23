@@ -1,62 +1,67 @@
+import Logo from '@/components/Logo'
+import Link from 'next/link'
+
+const AboutLinks = ['How it work', 'Featured', 'Partnership', 'Bussiness Relation']
+const CommunityLinks = ['Events', 'Blog', 'Podcast', 'Invite a friend']
+const SocialLinks = ['Discord', 'Instagram', 'X', 'Facebook']
+
+export function FooterMenu({ title, items }: { title: string; items: string[] }) {
+  return (
+    <article>
+      <h3 className='mb-2 font-semibold'>{title}</h3>
+      <nav className='grid gap-y-2 text-gray-500'>
+        {items.map((item, index) => {
+          return (
+            <Link
+              key={`${item}_${index}`}
+              href='#'
+              className='hover:text-black'
+            >
+              {item}
+            </Link>
+          )
+        })}
+      </nav>
+    </article>
+  )
+}
 export default function FooterSection() {
   return (
-    <footer className='mx-auto bg-gradient-to-t from-blue-400/80'>
-      <article className='flex justify-between mx-24 my-5'>
-        <div className='py-5'>
+    <footer className='mx-auto px-10 py-5 shadow-sm bg-white'>
+      <div className='flex justify-between'>
+        <div>
           <h2 className='text-primary uppercase font-semibold text-2xl'>
-            morent
+            <Logo />
           </h2>
-          <span className='text-sm'>
-            Our vision is to provide convenience and help increase your sales
-            business.
+          <span className='text-sm max-w-xs block'>
+            Our vision is to provide convenience and help increase your sales business.
           </span>
         </div>
         <div className='flex justify-between gap-10'>
-          <div>
-            <h3 className='py-5 font-semibold'>About</h3>
-            <div className='grid grid-cols-1 text-gray-400'>
-              <span className='cursor-pointer hover:text-black'>
-                How it work
-              </span>
-              <span className='cursor-pointer hover:text-black'>Featured</span>
-              <span className='cursor-pointer hover:text-black'>
-                Partnership
-              </span>
-              <span className='cursor-pointer hover:text-black'>
-                Bussiness Relation
-              </span>
-            </div>
-          </div>
-          <div>
-            <h3 className='py-5 font-semibold'>Community</h3>
-            <div className='grid grid-cols-1 text-gray-400'>
-              <span className='cursor-pointer hover:text-black'>Events</span>
-              <span className='cursor-pointer hover:text-black'>Blog</span>
-              <span className='cursor-pointer hover:text-black'>Podcast</span>
-              <span className='cursor-pointer hover:text-black'>
-                Invate a friend
-              </span>
-            </div>
-          </div>
-          <div>
-            <h3 className='py-5 font-semibold'>Socials</h3>
-            <div className='grid grid-cols-1 text-gray-400'>
-              <span className='cursor-pointer hover:text-black'>Discord</span>
-              <span className='cursor-pointer hover:text-black'>Instagram</span>
-              <span className='cursor-pointer hover:text-black'>Twitter</span>
-              <span className='cursor-pointer hover:text-black'>Facebook</span>
-            </div>
-          </div>
+          <FooterMenu
+            title='About'
+            items={AboutLinks}
+          />
+          <FooterMenu
+            title='Community'
+            items={CommunityLinks}
+          />
+          <FooterMenu
+            title='Socials'
+            items={SocialLinks}
+          />
         </div>
-      </article>
-      <hr />
-      <article className='flex justify-between p-5 mx-24 font-semibold text-xs'>
-        <span>©2022 MORENT. All Right reserved</span>
-        <div className='flex justify-between '>
+      </div>
+      <hr className='my-5 border-primary/60' />
+      <div className='flex justify-between font-semibold text-xs'>
+        <span>
+          ©2024 <Logo />. All Right reserved
+        </span>
+        <div className='flex justify-between gap-x-2'>
           <span>Privacy & Policy</span>
           <span>Terms & Condition</span>
         </div>
-      </article>
+      </div>
     </footer>
   )
 }

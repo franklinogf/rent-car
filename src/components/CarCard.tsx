@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'
 
 export function CarCard() {
   return (
-    <Card className='w-full mt-2 bg-gradient-to-t from-blue-400/80'>
+    <Card className='w-full mt-2'>
       <CardHeader>
         <div className='flex justify-between'>
           <CardTitle>Koenigsegg</CardTitle>
@@ -21,13 +21,16 @@ export function CarCard() {
         <CardDescription>Sport</CardDescription>
       </CardHeader>
       <CardContent>
-        <Image
-          className='m-auto'
-          alt='PopularCar'
-          src='/cars/car3.png'
-          width={232}
-          height={72}
-        />
+        <div className='h-28 relative'>
+          <div className='h-28 bg-gradient-to-t from-white absolute z-50 inset-0 to-80%'></div>
+          <Image
+            className='m-auto'
+            alt='PopularCar'
+            src='/cars/car3.png'
+            width={232}
+            height={72}
+          />
+        </div>
         <div className='flex justify-evenly'>
           <span className='flex justify-evenly items-center'>
             <SteeringIcon />

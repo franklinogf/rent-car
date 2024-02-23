@@ -1,6 +1,7 @@
 import { CarCard } from '@/components/CarCard'
 import { Button } from '@/components/ui/button'
 import { Sidebar } from '@/components/Sidebar'
+import { LocationPicker } from '@/components/LocationPicker'
 
 export default function Page() {
   return (
@@ -8,6 +9,7 @@ export default function Page() {
       {/* <> */}
       <Sidebar />
       <div className='p-2'>
+        <LocationPicker />
         <section className='grid grid-cols-3 gap-8'>
           {Array(9)
             .fill(null)
