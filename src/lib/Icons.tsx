@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 
-export function HeartIcon({ className }: { className: string }) {
+export function HeartIcon({ className }: { className?: string }) {
   return (
     <svg
       fill='none'
@@ -17,7 +17,7 @@ export function HeartIcon({ className }: { className: string }) {
     </svg>
   )
 }
-export function PeopleIcon({ className }: { className: string }) {
+export function PeopleIcon({ className }: { className?: string }) {
   return (
     <svg
       className={clsx('size-6', className)}
@@ -35,7 +35,7 @@ export function PeopleIcon({ className }: { className: string }) {
     </svg>
   )
 }
-export function SteeringIcon({ className }: { className: string }) {
+export function SteeringIcon({ className }: { className?: string }) {
   return (
     <svg
       className={clsx('size-6', className)}
