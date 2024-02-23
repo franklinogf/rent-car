@@ -1,3 +1,5 @@
+import PreviewCar from '@/components/PreviewCar'
+
 export default function Page() {
-  return <h1>Hello world</h1>
+  return <PreviewCar />
 }
