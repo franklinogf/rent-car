@@ -1,9 +1,10 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
 
 import { FaHeart } from 'react-icons/fa'
 import { IoSettingsSharp } from 'react-icons/io5'
 import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/Button'
+
 export default function Header() {
   return (
     <header className='bg-white w-full flex justify-between items-center px-4 shadow py-4'>
