@@ -1,7 +1,15 @@
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import { Slider } from '@/components/ui/slider'
-
+const carsTypes = [
+  'Sport (10)',
+  'SUV (12)',
+  'MPV (16)',
+  'Sedan (20)',
+  'Coupe (14)',
+  'Hatchback (15)'
+]
+const carsCapacity = ['2 Person (10)', '4 Person (14)', '6 Person (12)', '8 or More (16)']
 export default function Sidebar() {
   return (
     <aside className='-translate-x-64 lg:translate-x-0 w-64 bg-white border-2 h-screen px-4 py-2'>
@@ -26,16 +34,6 @@ export default function Sidebar() {
     </aside>
   )
 }
-
-const carsTypes = [
-  'Sport (10)',
-  'SUV (12)',
-  'MPV (16)',
-  'Sedan (20)',
-  'Coupe (14)',
-  'Hatchback (15)'
-]
-const carsCapacity = ['2 Person (10)', '4 Person (14)', '6 Person (12)', '8 or More (16)']
 
 export function SidebarSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
