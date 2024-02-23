@@ -1,11 +1,13 @@
-export function HeartIcon() {
+import clsx from 'clsx'
+
+export function HeartIcon({ className }: { className: string }) {
   return (
     <svg
       fill='none'
       viewBox='0 0 24 24'
-      strokeWidth='1.5'
+      strokeWidth='1'
       stroke='currentColor'
-      className='w-6 h-6 hover:fill-red-500 hover:stroke-none hover:cursor-pointer'
+      className={clsx('size-6', className)}
     >
       <path
         strokeLinecap='round'
@@ -15,10 +17,10 @@ export function HeartIcon() {
     </svg>
   )
 }
-export function PeopleIcon() {
+export function PeopleIcon({ className }: { className: string }) {
   return (
     <svg
-      className='w-6 h-6 text-gray-800 dark:text-white'
+      className={clsx('size-6', className)}
       aria-hidden='true'
       fill='none'
       strokeWidth='1.5'
@@ -33,10 +35,10 @@ export function PeopleIcon() {
     </svg>
   )
 }
-export function SteeringIcon() {
+export function SteeringIcon({ className }: { className: string }) {
   return (
     <svg
-      className='size-6'
+      className={clsx('size-6', className)}
       fill='#000000'
       viewBox='0 0 256 256'
     >
