@@ -1,6 +1,6 @@
 import PopularSection from '@/components/PopularCarSection'
 import PreviewCar from '@/components/PreviewCar'
-import RecomendationSection from '@/components/ReconmendationSection'
+import RecomendationSection from '@/components/RecomendationSection'
 
 export default function Page() {
   return (

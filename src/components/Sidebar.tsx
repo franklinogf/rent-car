@@ -10,9 +10,9 @@ const carsTypes = [
   'Hatchback (15)'
 ]
 const carsCapacity = ['2 Person (10)', '4 Person (14)', '6 Person (12)', '8 or More (16)']
-export default function Sidebar() {
+export function Sidebar() {
   return (
-    <aside className='-translate-x-64 lg:translate-x-0 w-64 bg-white border-2 h-screen px-4 py-2'>
+    <aside className='-translate-x-64 lg:translate-x-0 w-64 bg-white border-2 h-full px-4 py-2'>
       <div className='space-y-8 mt-5'>
         <SidebarMenuSection
           title='Type'

@@ -1,12 +1,23 @@
-import Sidebar, { SidebarMenuSection } from '@/components/Sidebar'
+import { CarCard } from '@/components/CarCard'
+import { Button } from '@/components/ui/button'
+import { Sidebar } from '@/components/Sidebar'
 
 export default function Page() {
   return (
-    // <div className='grid grid-flow-col grid-cols-[20%_80%] h-dvh'>
-    <>
+    <div className='grid grid-flow-col grid-cols-[20%_80%] h-dvh'>
+      {/* <> */}
       <Sidebar />
-      <div></div>
-    </>
-    // </div>
+      <div className='p-2'>
+        <section className='grid grid-cols-3 gap-8'>
+          {Array(9)
+            .fill(null)
+            .map((car, index) => {
+              return <CarCard key={index} />
+            })}
+        </section>
+        <Button className='mx-auto block mt-4'>Show more Car</Button>
+      </div>
+      {/* </> */}
+    </div>
   )
 }

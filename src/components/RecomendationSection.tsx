@@ -1,5 +1,5 @@
-import { CarCard } from './PopularCarSection'
-import { Button } from './ui/button'
+import { CarCard } from '@/components/CarCard'
+import { Button } from '@/components/ui/button'
 
 export default function RecomendationSection() {
   return (
