@@ -6,12 +6,12 @@ import { GiSteeringWheel } from 'react-icons/gi'
 
 export function CarCard() {
   return (
-    <article className='w-[304px] h-[388px] bg-[#c1d4df] relative bg-gradient-to-t from-white hover:bg-neutral-300'>
+    <article className='w-[304px] bg-[#c1d4df] px-2 py-5'>
       <div className='flex justify-between font-bold text-xl'>
         <h3>Koenigsegg</h3>
         <CiHeart className='size-8' />
       </div>
-      <p className='text-[#90A3BF]'>Sport</p>
+      <span className='text-[#90A3BF]'>Sport</span>
       <Image
         className='m-auto py-16'
         alt='PopularCar'
@@ -20,17 +20,17 @@ export function CarCard() {
         height={72}
       />
       <div className='flex justify-evenly'>
-        <p>
-          <GiSteeringWheel />
+        <span className='flex justify-evenly items-center'>
+          <GiSteeringWheel className='mr-1' />
           Manual
-        </p>
-        <p>
-          <FaPeopleGroup />
+        </span>
+        <span className='flex justify-evenly items-center '>
+          <FaPeopleGroup className='mr-1' />
           People
-        </p>
+        </span>
       </div>
-      <div className='grid grid-cols-2 m-3'>
-        <p>$99.00/day</p>
+      <div className='grid grid-cols-2 m-3 items-center'>
+        <span>$99.00/day</span>
         <Button>Rent Now</Button>
       </div>
     </article>
@@ -38,7 +38,7 @@ export function CarCard() {
 }
 export default function PopularSection() {
   return (
-    <section>
+    <section className='ml-56 mb-56'>
       <CarCard />
     </section>
   )
