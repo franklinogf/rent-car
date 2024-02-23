@@ -15,7 +15,7 @@ export default function RecomendationSection() {
         <CarCard />
         <CarCard />
       </div>
-      <Button className='mx-auto block'>Show more Car</Button>
+      <Button className='mx-auto block my-5'>Show more Car</Button>
     </section>
   )
 }
