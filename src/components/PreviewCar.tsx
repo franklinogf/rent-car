@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export function Car() {
   return (
-    <article className='bg-[#54A6FF] w-[640px] h-[360px] text-white relative mx-auto p-4'>
+    <article className='bg-blue-400 w-[640px] h-[360px] text-white relative mx-auto p-4'>
       <div className='grid grid-cols w-80 gap-5'>
         <h2 className='font-bold text-2xl'>The Best Platform for Car Rental</h2>
         <p className='font-light text-base'>
