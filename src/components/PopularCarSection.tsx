@@ -22,7 +22,7 @@ export function CarCard() {
       </CardHeader>
       <CardContent>
         <Image
-          className='m-auto py-5'
+          className='m-auto'
           alt='PopularCar'
           src='/cars/car3.png'
           width={232}
@@ -48,7 +48,7 @@ export function CarCard() {
 }
 export function ViewAll() {
   return (
-    <div className='flex justify-between px-10'>
+    <div className='flex justify-between items-center px-10'>
       <h2 className=' font-semibold'>Popular Car</h2>
       <Button
         variant='outline'
