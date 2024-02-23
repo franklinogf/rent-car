@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { FaHeart } from 'react-icons/fa'
 import { IoSettingsSharp } from 'react-icons/io5'
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/ui/button'
 
 export default function Header() {
   return (

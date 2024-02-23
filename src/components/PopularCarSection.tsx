@@ -1,4 +1,4 @@
-import { Button } from './ui/Button'
+import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { CiHeart } from 'react-icons/ci'
 import { FaPeopleGroup } from 'react-icons/fa6'
