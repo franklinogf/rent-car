@@ -49,7 +49,7 @@ export function CarCard() {
 export function ViewAll() {
   return (
     <div className='flex justify-between px-10'>
-      <h2>Popular Car</h2>
+      <h2 className=' font-semibold'>Popular Car</h2>
       <Button
         variant='outline'
         className='text-primary'
