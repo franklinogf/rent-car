@@ -12,7 +12,7 @@ import { HeartIcon, PeopleIcon, SteeringIcon } from '@/lib/Icons'
 
 export function CarCard() {
   return (
-    <Card className='w-full'>
+    <Card className='w-full bg-gradient-to-t from-blue-400/80'>
       <CardHeader>
         <div className='flex justify-between'>
           <CardTitle>Koenigsegg</CardTitle>
@@ -20,7 +20,7 @@ export function CarCard() {
         </div>
         <CardDescription>Sport</CardDescription>
       </CardHeader>
-      <CardContent className='bg-gradient-to-t from-blue-400'>
+      <CardContent>
         <Image
           className='m-auto py-5'
           alt='PopularCar'
