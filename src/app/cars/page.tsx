@@ -9,7 +9,9 @@ export default function Page() {
       {/* <> */}
       <Sidebar />
       <div className='p-2'>
-        <LocationPicker />
+        <div className='flex justify-center'>
+          <LocationPicker />
+        </div>
         <section className='grid grid-cols-3 gap-8'>
           {Array(9)
             .fill(null)

@@ -7,6 +7,7 @@ import {
   SelectValue
 } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
+
 export function PickerSelect({
   title,
   placeholder,
@@ -18,7 +19,7 @@ export function PickerSelect({
 }) {
   return (
     <div>
-      <span className='font-semibold mb-2'>{title}</span>
+      <span className='font-semibold text-xs mb-2'>{title}</span>
       <Select>
         <SelectTrigger className='text-xs text-gray-400 border-none h-6 p-0'>
           <SelectValue placeholder={placeholder} />
@@ -39,11 +40,11 @@ export function PickerSelect({
 }
 export function Picker({ title }: { title: string }) {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
+    <Card className='w-full'>
+      <CardHeader className='px-4 py-2'>
+        <CardTitle className='text-sm text-black'>{title}</CardTitle>
       </CardHeader>
-      <CardContent className='flex gap-2'>
+      <CardContent className='flex gap-2 px-4 pt-0 pb-3 w-full justify-around'>
         <PickerSelect
           title='Locations'
           placeholder='Select your city'
@@ -65,9 +66,9 @@ export function Picker({ title }: { title: string }) {
 }
 export function LocationPicker() {
   return (
-    <div className='flex justify-center items-center'>
+    <div className='flex justify-center items-center gap-8 relative w-full max-w-4xl'>
       <Picker title='Pick-Up' />
-      <Button>S</Button>
+      <Button className='absolute top-auto shadow-lg rounded-[5%]'>S</Button>
       <Picker title='Drop-Off' />
     </div>
   )
