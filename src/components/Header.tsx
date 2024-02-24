@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Logo from '@/components/Logo'
-import { HeartIcon } from '@/lib/Icons'
+import { HeartIcon, SettingsIcon } from '@/lib/Icons'
 
 export default function Header() {
   return (
@@ -33,14 +33,14 @@ export default function Header() {
           size='icon'
           className='rounded-full'
         >
-          <HeartIcon />
+          <HeartIcon className='size-7' />
         </Button>
         <Button
           variant='ghost'
           size='icon'
           className='rounded-full'
         >
-          <HeartIcon />
+          <SettingsIcon className='size-7' />
         </Button>
         <Avatar>
           <AvatarImage />

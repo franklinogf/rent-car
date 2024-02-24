@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import clsx from 'clsx'
+import FooterSection from '@/components/FooterSection'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,7 +21,8 @@ export default function RootLayout({
     <html lang='en'>
       <body className={clsx(inter.className, 'bg-slate-100/60')}>
         <Header />
-        <main>{children}</main>
+        <main className='px-4'>{children}</main>
+        <FooterSection />
       </body>
     </html>
   )

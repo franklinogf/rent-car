@@ -1,21 +1,19 @@
-import FooterSection from '@/components/FooterSection'
 import { LocationPicker } from '@/components/LocationPicker'
 import PopularSection from '@/components/PopularCarSection'
-import PreviewCar from '@/components/PreviewCar'
+import { PreviewCarSection } from '@/components/PreviewCar'
 import RecomendationSection from '@/components/RecomendationSection'
 
 export default function Page() {
   return (
     <>
       <div className='mt-4'>
-        <PreviewCar />
+        <PreviewCarSection />
       </div>
       <div className='mt-4 flex justify-center'>
         <LocationPicker />
       </div>
       <PopularSection />
       <RecomendationSection />
-      <FooterSection />
     </>
   )
 }
