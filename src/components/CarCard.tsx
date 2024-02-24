@@ -37,7 +37,7 @@ export function CarCard() {
           <Image
             className='m-auto'
             alt='PopularCar'
-            src='/cars/car3.png'
+            src='/cars/car2.png'
             width={232}
             height={72}
           />
