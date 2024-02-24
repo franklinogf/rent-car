@@ -7,6 +7,7 @@ import {
   SelectValue
 } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
+import { ArrowsUpDown } from '@/lib/Icons'
 
 export function PickerSelect({
   title,
@@ -68,7 +69,9 @@ export function LocationPicker() {
   return (
     <div className='flex justify-center items-center gap-8 relative w-full max-w-4xl'>
       <Picker title='Pick-Up' />
-      <Button className='absolute top-auto shadow-lg rounded-[5%]'>S</Button>
+      <Button className='absolute top-auto shadow-lg rounded-[5%]'>
+        <ArrowsUpDown className='text-white size-5 stroke-2' />
+      </Button>
       <Picker title='Drop-Off' />
     </div>
   )
