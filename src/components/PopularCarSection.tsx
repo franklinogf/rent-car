@@ -1,5 +1,22 @@
 import { Button } from '@/components/ui/button'
 import { CarCard } from '@/components/CarCard'
+import { cars } from '@/database/cars'
+
+export default function PopularSection() {
+  return (
+    <section className='mt-4'>
+      <ViewAll />
+      <div className='mt-3 grid grid-cols-4 gap-x-5 px-10'>
+        {cars.map((car) => (
+          <CarCard
+            key={car.id}
+            {...car}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
 
 export function ViewAll() {
   return (
@@ -12,18 +29,5 @@ export function ViewAll() {
         View All
       </Button>
     </div>
-  )
-}
-export default function PopularSection() {
-  return (
-    <section className='mt-4'>
-      <ViewAll />
-      <div className='mt-3 grid grid-cols-4 gap-x-5 px-10'>
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-      </div>
-    </section>
   )
 }

@@ -13,11 +13,11 @@ export default function Page() {
           <LocationPicker />
         </div>
         <section className='grid grid-cols-3 gap-8'>
-          {Array(9)
+          {/* {Array(9)
             .fill(null)
             .map((car, index) => {
               return <CarCard key={index} />
-            })}
+            })} */}
         </section>
         <Button className='mx-auto block mt-4'>Show more Car</Button>
       </div>
