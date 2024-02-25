@@ -67,9 +67,9 @@ export function Picker({ title }: { title: string }) {
 }
 export function LocationPicker() {
   return (
-    <div className='flex justify-center items-center gap-8 relative w-full max-w-4xl'>
+    <div className='flex flex-col justify-center items-center gap-y-2 w-full max-w-4xl lg:flex-row lg:gap-x-8 lg:relative '>
       <Picker title='Pick-Up' />
-      <Button className='absolute top-auto shadow-lg rounded-[5%]'>
+      <Button className='lg:absolute lg:top-auto shadow-lg rounded-[5%]'>
         <ArrowsUpDown className='text-white size-5 stroke-2' />
       </Button>
       <Picker title='Drop-Off' />
