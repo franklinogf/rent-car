@@ -10,28 +10,35 @@ const carsTypes = [
   'Hatchback (15)'
 ]
 const carsCapacity = ['2 Person (10)', '4 Person (14)', '6 Person (12)', '8 or More (16)']
+
 export function Sidebar() {
   return (
-    <aside className='-translate-x-64 lg:translate-x-0 w-64 bg-white border-2 h-full px-4 py-2'>
-      <div className='space-y-8 mt-5'>
-        <SidebarMenuSection
-          title='Type'
-          items={carsTypes}
-        />
-        <SidebarMenuSection
-          title='Capacity'
-          items={carsCapacity}
-        />
-        <SidebarSection title='Price'>
-          <Slider
-            defaultValue={[30]}
-            max={100}
-            step={1}
-          />
-          <span className='text-sm font-semibold text-gray-700/90 mt-4 block'>Max. $100.00</span>
-        </SidebarSection>
-      </div>
+    <aside className='hidden lg:block flex-grow-0 w-full bg-white border-r-2 border-t-2 px-4 py-2 max-w-56 '>
+      <SidebarMenu />
     </aside>
+  )
+}
+
+export function SidebarMenu() {
+  return (
+    <div className='space-y-8 mt-5'>
+      <SidebarMenuSection
+        title='Type'
+        items={carsTypes}
+      />
+      <SidebarMenuSection
+        title='Capacity'
+        items={carsCapacity}
+      />
+      <SidebarSection title='Price'>
+        <Slider
+          defaultValue={[30]}
+          max={100}
+          step={1}
+        />
+        <span className='text-sm font-semibold text-gray-700/90 mt-4 block'>Max. $100.00</span>
+      </SidebarSection>
+    </div>
   )
 }
 

@@ -5,7 +5,7 @@ import RecomendationSection from '@/components/RecomendationSection'
 
 export default function Page() {
   return (
-    <>
+    <div className='px-4 lg:px-10'>
       <div className='mt-4'>
         <PreviewCarSection />
       </div>
@@ -14,6 +14,6 @@ export default function Page() {
       </div>
       <PopularSection />
       <RecomendationSection />
-    </>
+    </div>
   )
 }

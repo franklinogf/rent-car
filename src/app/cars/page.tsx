@@ -1,29 +1,21 @@
-import { CarCard } from '@/components/CarCard'
 import { Button } from '@/components/ui/button'
 import { Sidebar } from '@/components/Sidebar'
 import { LocationPicker } from '@/components/LocationPicker'
 import { cars } from '@/database/cars'
 
+import { ShowCars } from '@/components/ShowCars'
+
 export default function Page() {
   return (
-    <div className='grid grid-flow-col grid-cols-[20%_80%] h-full'>
-      {/* <> */}
+    <div className='lg:flex h-full'>
       <Sidebar />
-      <div className='p-2'>
+      <div className='px-5 py-2'>
         <div className='flex justify-center'>
           <LocationPicker />
         </div>
-        <section className='grid grid-cols-3 gap-8'>
-          {cars.map((car) => (
-            <CarCard
-              key={car.id}
-              {...car}
-            />
-          ))}
-        </section>
+        <ShowCars cars={cars} />
         <Button className='mx-auto block mt-4'>Show more Car</Button>
       </div>
-      {/* </> */}
     </div>
   )
 }

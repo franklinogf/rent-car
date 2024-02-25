@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={clsx(inter.className, 'bg-slate-100/60')}>
         <Header />
-        <main className='px-4'>{children}</main>
+        <main>{children}</main>
         <FooterSection />
       </body>
     </html>
