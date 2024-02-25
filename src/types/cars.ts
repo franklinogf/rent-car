@@ -1,5 +1,5 @@
 
-export type CarType = 'Sport' | 'SUV' 
+export type CarType = 'Sport' | 'SUV' | 'Hatchback'
 
 export interface CarFeature{
     type:string
