@@ -13,7 +13,6 @@ import { FavoriteHeartButton } from '@/components/FavoriteHeartButton'
 import { Car } from '@/types/cars'
 
 export function CarCard({ model, type, image, price, features }: Car) {
-  console.log(features)
   return (
     <Card className='w-full mt-2'>
       <CardHeader>
