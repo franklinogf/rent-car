@@ -1,5 +1,4 @@
-
-export type CarType = 'Sport' | 'SUV' | 'Hatchback'
+import { type CarTypeName } from "./carsType"
 
 export interface CarFeature{
     type:string
@@ -10,7 +9,7 @@ export interface Car{
     id:number
     model:string
     brand:string
-    type:CarType
+    type:CarTypeName
     image:string
     features:CarFeature[]
     price:number
