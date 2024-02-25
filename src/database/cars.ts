@@ -177,7 +177,7 @@ export const cars: Car[] = [
       },
       {
         type: 'Person',
-        value: 7
+        value: 8
       }
     ]
   },
