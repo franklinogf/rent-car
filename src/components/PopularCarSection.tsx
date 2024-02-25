@@ -6,7 +6,7 @@ export default function PopularSection() {
   return (
     <section className='mt-4'>
       <ViewAll />
-      <div className='mt-3 grid grid-cols-4 gap-x-5 px-10'>
+      <div className='grid md:grid-cols-2 md:gap-x-5 lg:grid-cols-3 xl:grid-cols-4'>
         {cars.map((car) => (
           <CarCard
             key={car.id}

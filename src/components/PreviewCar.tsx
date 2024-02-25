@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button'
-import clsx from 'clsx'
 import Image from 'next/image'
 
 export function Car() {
@@ -13,11 +12,11 @@ export function Car() {
         <Button className='w-32 text-base'>Rental Car</Button>
       </div>
       <Image
-        className='bottom-0 left-36 absolute'
+        className='bottom-0 left-1/2 -translate-x-1/2 lg:-translate-x-1/3 absolute w-48 lg:w-56'
         alt='previewCar1'
-        src='/cars/car3.png'
-        width={300}
-        height={268}
+        src='/cars/car4.png'
+        width={250}
+        height={100}
         // style={{ height: 'auto', width: 'auto' }}
       />
     </article>
@@ -26,7 +25,7 @@ export function Car() {
 
 export function PreviewCarSection() {
   return (
-    <section className='w-full flex flex-col justify-center gap-y-5 lg:flex-row lg:justify-center lg:gap-x-5'>
+    <section className='w-full flex flex-col justify-center gap-y-5 lg:flex-row lg:justify-center lg:gap-x-5 mx-auto place-items-center'>
       <Car />
       <Car />
     </section>

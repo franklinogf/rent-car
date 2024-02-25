@@ -28,7 +28,7 @@ export function FooterMenu({ title, items }: { title: string; items: string[] })
 export default function FooterSection() {
   return (
     <footer className='mx-auto px-10 py-5 shadow-sm bg-white'>
-      <div className='flex justify-between'>
+      <div className='flex flex-col gap-y-4 lg:gap-y-0 lg:flex-row justify-between'>
         <div>
           <h2 className='text-primary uppercase font-semibold text-2xl'>
             <Logo />
@@ -37,7 +37,7 @@ export default function FooterSection() {
             Our vision is to provide convenience and help increase your sales business.
           </span>
         </div>
-        <div className='flex justify-between gap-10'>
+        <div className='flex flex-col md:flex-row md:justify-around lg:justify-between gap-y-5 lg:gap-y-0 lg:gap-x-10'>
           <FooterMenu
             title='About'
             items={AboutLinks}
@@ -53,8 +53,8 @@ export default function FooterSection() {
         </div>
       </div>
       <hr className='my-5 border-primary/60' />
-      <div className='flex justify-between font-semibold text-xs'>
-        <span>
+      <div className='flex flex-col lg:flex-row gap-y-2 lg:gap-y-0 justify-between font-semibold text-xs'>
+        <span className='text-center'>
           ©2024 <Logo />. All Right reserved
         </span>
         <div className='flex justify-between gap-x-2'>

@@ -14,7 +14,7 @@ import { Car } from '@/types/cars'
 
 export function CarCard({ model, type, image, price, features }: Car) {
   return (
-    <Card className='w-full mt-2'>
+    <Card className='w-full xl:max-w-sm xl:place-self-center mt-2'>
       <CardHeader>
         <div className='flex justify-between'>
           <CardTitle>{model}</CardTitle>
