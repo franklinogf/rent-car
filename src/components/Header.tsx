@@ -25,12 +25,14 @@ export default function Header() {
         <SheetContent side='left'>
           <SheetHeader>
             <SheetTitle>
-              <Link
-                href='/'
-                className='text-primary font-bold'
-              >
-                <Logo />
-              </Link>
+              <SheetClose asChild>
+                <Link
+                  href='/'
+                  className='text-primary font-bold'
+                >
+                  <Logo />
+                </Link>
+              </SheetClose>
             </SheetTitle>
           </SheetHeader>
           <div className='grid gap-y-4 h-full pb-6 pt-5'>
