@@ -23,11 +23,11 @@ export function CarCard({ id, model, type, image, price, features }: Car) {
         </div>
         <CardDescription>{type}</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className='px-0'>
         <div className='h-28 relative mb-2'>
           <div className='h-28 bg-gradient-to-t from-white absolute z-50 inset-0 to-30%'></div>
           <Image
-            className='min-w-52 h-auto max-w-2xl absolute bottom-0 left-1/2 -translate-x-1/2'
+            className='w-full h-auto max-w-44 absolute bottom-0 left-1/2 -translate-x-1/2'
             alt={model}
             src={image}
             width='0'
