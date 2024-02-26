@@ -24,14 +24,15 @@ export function CarCard({ id, model, type, image, price, features }: Car) {
         <CardDescription>{type}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className='h-28 relative'>
-          <div className='h-28 bg-gradient-to-t from-white absolute z-50 inset-0 to-80%'></div>
+        <div className='h-28 relative mb-2'>
+          <div className='h-28 bg-gradient-to-t from-white absolute z-50 inset-0 to-30%'></div>
           <Image
-            className='m-auto'
+            className='min-w-52 h-auto max-w-2xl absolute bottom-0 left-1/2 -translate-x-1/2'
             alt={model}
             src={image}
-            width={232}
-            height={72}
+            width='0'
+            height='0'
+            sizes='100%'
           />
         </div>
         <div className='flex justify-evenly'>
