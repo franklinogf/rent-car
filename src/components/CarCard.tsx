@@ -11,8 +11,9 @@ import { PeopleIcon, SteeringIcon } from '@/lib/Icons'
 import { Button } from '@/components/ui/button'
 import { FavoriteHeartButton } from '@/components/FavoriteHeartButton'
 import { Car } from '@/types/cars'
+import Link from 'next/link'
 
-export function CarCard({ model, type, image, price, features }: Car) {
+export function CarCard({ id, model, type, image, price, features }: Car) {
   return (
     <Card className='w-full xl:max-w-sm xl:place-self-center mt-2'>
       <CardHeader>
@@ -49,7 +50,9 @@ export function CarCard({ model, type, image, price, features }: Car) {
       </CardContent>
       <CardFooter className='flex justify-between'>
         <span>${price}/day</span>
-        <Button>Rent Now</Button>
+        <Button asChild>
+          <Link href={`/cars/${id}`}>Rent Now</Link>
+        </Button>
       </CardFooter>
     </Card>
   )
