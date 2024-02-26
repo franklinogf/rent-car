@@ -19,7 +19,7 @@ export default function Header() {
           </Link>
         </Button>
       </nav>
-      <nav className='flex justify-evenly items-center gap-4'>
+      <nav className='md:flex justify-evenly items-center gap-4 hidden'>
         <Button
           variant='ghost'
           asChild
@@ -33,14 +33,14 @@ export default function Header() {
           size='icon'
           className='rounded-full'
         >
-          <HeartIcon className='size-7' />
+          <HeartIcon className='size-6' />
         </Button>
         <Button
           variant='ghost'
           size='icon'
           className='rounded-full'
         >
-          <SettingsIcon className='size-7' />
+          <SettingsIcon className='size-6' />
         </Button>
         <Avatar>
           <AvatarImage />
