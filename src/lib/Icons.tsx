@@ -68,6 +68,23 @@ export function ArrowsUpDown({ className }: IconClassName) {
     </svg>
   )
 }
+export function ArrowsLeftRight({ className }: IconClassName) {
+  return (
+    <svg
+      fill='none'
+      viewBox='0 0 24 24'
+      strokeWidth={1.5}
+      stroke='currentColor'
+      className={clsx('size-6', className)}
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5'
+      />
+    </svg>
+  )
+}
 
 export function SettingsIcon({ className }: IconClassName) {
   return (
