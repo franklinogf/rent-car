@@ -2,7 +2,7 @@ import { type Car } from '@/types/cars'
 
 export const cars: Car[] = [
   {
-    id:1,
+    id: 1,
     brand: 'Lamborghini',
     model: 'Koenigsegg',
     type: 'Sport',
@@ -17,10 +17,26 @@ export const cars: Car[] = [
         type: 'Person',
         value: 2
       }
+    ],
+    comments: [
+      {
+        id: '1',
+        name: 'Franklin Omar',
+        date: '2024-02-27',
+        rating: 4,
+        body: 'The best car in the world'
+      },
+      {
+        id: '2',
+        name: 'Darwin Zacarias',
+        date: '2024-02-26',
+        rating: 3,
+        body: 'The car is good, should improve'
+      }
     ]
   },
   {
-    id:2,
+    id: 2,
     brand: 'Toyota',
     model: 'RAV-4',
     type: 'SUV',
@@ -38,7 +54,7 @@ export const cars: Car[] = [
     ]
   },
   {
-    id:3,
+    id: 3,
     brand: 'Rolls-Royce',
     model: 'Dawn',
     type: 'Sport',
@@ -56,7 +72,7 @@ export const cars: Car[] = [
     ]
   },
   {
-    id:4,
+    id: 4,
     brand: 'Volkswagen',
     model: 'Touareg',
     type: 'SUV',
@@ -74,7 +90,7 @@ export const cars: Car[] = [
     ]
   },
   {
-    id:5,
+    id: 5,
     brand: 'Nissan',
     model: 'GT-R',
     type: 'Sport',
@@ -92,7 +108,7 @@ export const cars: Car[] = [
     ]
   },
   {
-    id:6,
+    id: 6,
     brand: 'Nissan',
     model: 'Skyline',
     type: 'Sport',
@@ -110,7 +126,7 @@ export const cars: Car[] = [
     ]
   },
   {
-    id:7,
+    id: 7,
     brand: 'MG',
     model: 'ZS',
     type: 'SUV',
@@ -128,7 +144,7 @@ export const cars: Car[] = [
     ]
   },
   {
-    id:8,
+    id: 8,
     brand: 'Chery',
     model: 'Tiggo',
     type: 'SUV',
@@ -146,7 +162,7 @@ export const cars: Car[] = [
     ]
   },
   {
-    id:9,
+    id: 9,
     brand: 'MG',
     model: 'ZX Exclusive',
     type: 'Hatchback',
@@ -164,7 +180,7 @@ export const cars: Car[] = [
     ]
   },
   {
-    id:10,
+    id: 10,
     brand: 'Porsche',
     model: 'Cayenne',
     type: 'SUV',
@@ -182,7 +198,7 @@ export const cars: Car[] = [
     ]
   },
   {
-    id:11,
+    id: 11,
     brand: 'MG',
     model: 'ZS',
     type: 'SUV',
@@ -200,7 +216,7 @@ export const cars: Car[] = [
     ]
   },
   {
-    id:12,
+    id: 12,
     brand: 'MG',
     model: 'ZX Excite',
     type: 'SUV',
@@ -208,12 +224,12 @@ export const cars: Car[] = [
     price: 30,
     features: [
       {
-        type: 'Gear',
-        value: 'Automatic'
-      },
-      {
         type: 'Person',
         value: 5
+      },
+      {
+        type: 'Gear',
+        value: 'Automatic'
       }
     ]
   }
