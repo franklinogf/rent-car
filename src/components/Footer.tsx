@@ -5,7 +5,7 @@ const AboutLinks = ['How it work', 'Featured', 'Partnership', 'Bussiness Relatio
 const CommunityLinks = ['Events', 'Blog', 'Podcast', 'Invite a friend']
 const SocialLinks = ['Discord', 'Instagram', 'X', 'Facebook']
 
-export function FooterMenu({ title, items }: { title: string; items: string[] }) {
+function FooterMenu({ title, items }: { title: string; items: string[] }) {
   return (
     <article>
       <h3 className='mb-2 font-semibold'>{title}</h3>
@@ -25,7 +25,7 @@ export function FooterMenu({ title, items }: { title: string; items: string[] })
     </article>
   )
 }
-export default function FooterSection() {
+export function Footer() {
   return (
     <footer className='mx-auto px-10 py-5 shadow-sm bg-white'>
       <div className='flex flex-col gap-y-4 lg:gap-y-0 lg:flex-row justify-between'>
