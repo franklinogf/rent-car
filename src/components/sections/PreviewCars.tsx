@@ -38,7 +38,7 @@ export function Car({
   )
 }
 
-export function PreviewCarSection() {
+export function PreviewCars() {
   return (
     <section className='w-full flex flex-col justify-center gap-y-5 lg:flex-row lg:justify-center lg:gap-x-5 mx-auto place-items-center'>
       <Car />

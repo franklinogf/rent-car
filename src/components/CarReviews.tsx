@@ -1,5 +1,5 @@
 import BoxComment from './BoxComments'
-import PopularSection from './PopularCarSection'
+import { PopularCars } from '@/components/sections/PopularCars'
 import { Button } from './ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
 
@@ -37,7 +37,7 @@ export function CarReviews() {
           </Button>
         </CardFooter>
       </Card>
-      <PopularSection />
+      <PopularCars />
     </section>
   )
 }
