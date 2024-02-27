@@ -4,6 +4,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { CarGallery } from '@/components/CarGallery'
 import { CarDetail } from '@/components/CarDetail'
 import BoxComment from '@/components/BoxComments'
+import { CarReviews } from '@/components/CarReviews'
 
 export default function Page({ params }: { params: { id: string } }) {
   const car = cars.find((car) => car.id === Number(params.id))
@@ -17,10 +18,12 @@ export default function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className='grid xl:grid-flow-col justify-center gap-5 mx-auto'>
-      <CarGallery />
-      <CarDetail car={car} />
-      <BoxComment />
+    <div className='space-y-5'>
+      <div className='grid xl:grid-flow-col justify-center gap-5 mx-auto'>
+        <CarGallery />
+        <CarDetail car={car} />
+      </div>
+      <CarReviews />
     </div>
   )
 }

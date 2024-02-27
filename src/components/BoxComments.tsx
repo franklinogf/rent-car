@@ -1,42 +1,38 @@
 'use client'
-import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
-import { CarRating } from './CarDetail'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { CarRating } from '@/components/CarDetail'
 
 export default function BoxComment() {
   return (
-    <section className='w-full'>
-      <div className=''>
-        <span className='font-bold text-md'>Reviews</span>
-        <span className='rounded-[10%] px-3 py-1 bg-primary text-white mx-2 text-xs'>
-          13
-        </span>
+    <article className='w-full flex gap-x-5'>
+      <div>
+        <Avatar>
+          <AvatarImage />
+          <AvatarFallback className='bg-primary/50'>FG</AvatarFallback>
+        </Avatar>
       </div>
-      <div className='my-5'>
-        <div className='flex justify-between'>
-          <div className='flex items-center'>
-            <Avatar>
-              <AvatarImage />
-              <AvatarFallback className='bg-primary/50'>FG</AvatarFallback>
-            </Avatar>
-            <div className='grid grid-col px-5'>
-              <span className='font-bold text-xl my-2'>Alex Stanton</span>
-              <span className='text-gray-500 text-xs'>CEO at Bukalapak</span>
-            </div>
+      <div className='grid space-y-4'>
+        <div className='flex justify-between items-center w-full'>
+          <div className='grid'>
+            <h5 className='font-bold text-xl'>Alex Stanton</h5>
+            <h6 className='text-gray-500 text-xs'>CEO at Bukalapak</h6>
           </div>
-          <div className='grid grid-col'>
-            <span>DATE</span>
-            <CarRating rating={4} />
+          <div className='grid'>
+            <span>{new Date().toDateString()}</span>
+            <CarRating
+              rating={4}
+              withReviews={false}
+            />
           </div>
         </div>
-        <div className='my-5'>
-          <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magni
-            nobis optio, quod nemo voluptatibus facere molestiae explicabo
-            commodi odit, eum architecto sunt nam ipsum repudiandae doloribus
-            illo officia veniam!
-          </span>
+        <div>
+          <p className='text-pretty'>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam adipisci, ab
+            praesentium odio a inventore aliquam doloribus temporibus consectetur nemo, maiores
+            laborum nobis fugit molestiae autem quia? Maiores, ab ipsa!
+          </p>
         </div>
       </div>
-    </section>
+    </article>
   )
 }
