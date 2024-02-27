@@ -12,7 +12,7 @@ type CarFeatureGear = {
 export type CarFeature = CarFeaturePerson | CarFeatureGear
 
 export type CarComment = {
-  readonly id: string
+  readonly id: number
   name: string
   date: string
   rating: number
@@ -26,7 +26,9 @@ export interface Car {
   brand: Capitalize<string>
   type: Capitalize<CarType>
   image: string
+  description: string
   features: NonEmptyArray<CarFeature>
   price: number
   comments?: CarComment[]
+  rating?: number
 }

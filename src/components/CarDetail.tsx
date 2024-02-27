@@ -5,9 +5,11 @@ import { Car } from '@/types/cars'
 
 export function CarRating({
   rating,
+  amountOfReviews,
   withReviews = true
 }: {
   rating: number
+  amountOfReviews: number
   withReviews?: boolean
 }) {
   const filledStars = Math.floor(rating)
@@ -69,11 +71,20 @@ export function CarRating({
             <path d='M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z' />
           </svg>
         ))}
-      {withReviews && <span className='ms-1 text-sm font-medium text-gray-500'>0 Reviews</span>}
+      {withReviews && (
+        <span className='ms-1 text-sm font-medium text-gray-500'>{amountOfReviews} Reviews</span>
+      )}
     </span>
   )
 }
 export function CarDetail({ car }: { car: Car }) {
+  let ratingsTotal = 0
+  if (car.comments?.length) {
+    const ratings = car.comments.map(({ rating }) => rating)
+    const sumOfRating = ratings.reduce((a, b) => a + b, 0)
+    console.log()
+    ratingsTotal = sumOfRating ? sumOfRating / car.comments.length : 0
+  }
   return (
     <Card className='w-full'>
       <CardHeader>
@@ -82,7 +93,10 @@ export function CarDetail({ car }: { car: Car }) {
           <FavoriteHeartButton />
         </div>
         <CardDescription>
-          <CarRating rating={3.1} />
+          <CarRating
+            rating={ratingsTotal}
+            amountOfReviews={car.comments ? car.comments.length : 0}
+          />
         </CardDescription>
       </CardHeader>
       <CardContent className='text-gray-500 space-y-8'>

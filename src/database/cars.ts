@@ -20,14 +20,14 @@ export const cars: Car[] = [
     ],
     comments: [
       {
-        id: '1',
+        id: 1,
         name: 'Franklin Omar',
         date: '2024-02-27',
         rating: 4,
         body: 'The best car in the world'
       },
       {
-        id: '2',
+        id: 2,
         name: 'Darwin Zacarias',
         date: '2024-02-26',
         rating: 3,
