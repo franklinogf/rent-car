@@ -1,5 +1,7 @@
 import BoxComment from './BoxComments'
-import { Card, CardContent, CardHeader } from './ui/card'
+import PopularSection from './PopularCarSection'
+import { Button } from './ui/button'
+import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
 
 export function CarReviews() {
   return (
@@ -26,7 +28,16 @@ export function CarReviews() {
             rating={4}
           />
         </CardContent>
+        <CardFooter className='flex justify-center'>
+          <Button
+            variant={'outline'}
+            className='hover:bg-primary hover:text-white'
+          >
+            Show All
+          </Button>
+        </CardFooter>
       </Card>
+      <PopularSection />
     </section>
   )
 }
