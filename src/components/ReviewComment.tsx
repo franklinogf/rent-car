@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { CarRating } from '@/components/CarDetail'
 
-export default function BoxComment({ rating, name }: { rating: number; name: string }) {
+export function ReviewComment({ rating, name }: { rating: number; name: string }) {
   const [firstName, secondName] = name.split(' ')
   let initials = firstName.charAt(0)
   if (secondName) {

@@ -1,4 +1,4 @@
-import BoxComment from './BoxComments'
+import { ReviewComment } from './ReviewComment'
 import { PopularCars } from '@/components/sections/PopularCars'
 import { Button } from './ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
@@ -15,15 +15,15 @@ export function CarReviews() {
         </CardHeader>
 
         <CardContent className='space-y-4'>
-          <BoxComment
+          <ReviewComment
             name='Franklin Omar Gonzalez'
             rating={1}
           />
-          <BoxComment
+          <ReviewComment
             name='Darwin Zacarias'
             rating={2}
           />
-          <BoxComment
+          <ReviewComment
             name='Alam'
             rating={4}
           />
