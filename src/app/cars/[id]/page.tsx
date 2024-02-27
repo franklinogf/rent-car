@@ -3,7 +3,6 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 
 import { CarGallery } from '@/components/CarGallery'
 import { CarDetail } from '@/components/CarDetail'
-import BoxComment from '@/components/BoxComments'
 import { CarReviews } from '@/components/CarReviews'
 
 export default function Page({ params }: { params: { id: string } }) {
