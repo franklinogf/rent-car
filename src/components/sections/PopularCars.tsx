@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { cars } from '@/database/cars'
-import { ShowCars } from './ShowCars'
+import { ShowCars } from '../ShowCars'
 
-export default function PopularSection() {
+export function PopularCars() {
   return (
     <section className='mt-4'>
       <ViewAll />

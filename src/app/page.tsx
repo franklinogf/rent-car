@@ -1,7 +1,7 @@
 import { LocationPicker } from '@/components/LocationPicker'
-import PopularSection from '@/components/PopularCarSection'
+import { PopularCars } from '@/components/sections/PopularCars'
 import { PreviewCarSection } from '@/components/PreviewCar'
-import RecomendationSection from '@/components/RecomendationSection'
+import { RecommendedCars } from '@/components/sections/RecommendedCars'
 
 export default function Page() {
   return (
@@ -12,8 +12,8 @@ export default function Page() {
       <div className='mt-4 flex justify-center'>
         <LocationPicker />
       </div>
-      <PopularSection />
-      <RecomendationSection />
+      <PopularCars />
+      <RecommendedCars />
     </div>
   )
 }
