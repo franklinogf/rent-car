@@ -1,15 +1,12 @@
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import { Slider } from '@/components/ui/slider'
-const carsTypes = [
-  'Sport (10)',
-  'SUV (12)',
-  'MPV (16)',
-  'Sedan (20)',
-  'Coupe (14)',
-  'Hatchback (15)'
+import { cars } from '@/database/cars'
+
+const carsTypes = [...new Set(cars.map((car) => car.type))]
+const carsCapacity = [
+  ...new Set(cars.map((car) => car.features.find((f) => f.type === 'Person')?.value + ' Persons'))
 ]
-const carsCapacity = ['2 Person (10)', '4 Person (14)', '6 Person (12)', '8 or More (16)']
 
 export function Sidebar() {
   return (

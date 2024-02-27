@@ -1,7 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { CarRating } from '@/components/CarDetail'
+import { CarComment } from '@/types/cars'
 
-export function ReviewComment({ rating, name }: { rating: number; name: string }) {
+export function ReviewComment({ rating, name, body, date }: CarComment) {
   const [firstName, secondName] = name.split(' ')
   let initials = firstName.charAt(0)
   if (secondName) {
@@ -15,14 +16,13 @@ export function ReviewComment({ rating, name }: { rating: number; name: string }
           <AvatarFallback className='bg-primary/50'>{initials}</AvatarFallback>
         </Avatar>
       </div>
-      <div className='grid space-y-4'>
+      <div className='grid space-y-4 w-full'>
         <div className='flex justify-between items-center w-full'>
           <div className='grid'>
             <h5 className='font-bold text-xl'>{name}</h5>
-            <h6 className='text-gray-500 text-xs'>CEO at Bukalapak</h6>
           </div>
           <div className='grid'>
-            <span>{new Date().toDateString()}</span>
+            <span>{date}</span>
             <CarRating
               rating={rating}
               withReviews={false}
@@ -30,11 +30,7 @@ export function ReviewComment({ rating, name }: { rating: number; name: string }
           </div>
         </div>
         <div>
-          <p className='text-pretty'>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam adipisci, ab
-            praesentium odio a inventore aliquam doloribus temporibus consectetur nemo, maiores
-            laborum nobis fugit molestiae autem quia? Maiores, ab ipsa!
-          </p>
+          <p className='text-pretty'>{body}</p>
         </div>
       </div>
     </article>

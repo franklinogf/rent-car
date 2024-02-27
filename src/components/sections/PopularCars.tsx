@@ -1,8 +1,8 @@
 import { cars } from '@/database/cars'
 import { ShowCars } from '@/components/ShowCars'
+const popularCars = cars.slice(0, 4)
 
 export function PopularCars() {
-  const popularCars = cars.slice(0, 4)
   return (
     <section className='mt-4'>
       <ShowCars

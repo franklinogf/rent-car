@@ -22,7 +22,7 @@ export default function Page({ params }: { params: { id: string } }) {
         <CarGallery />
         <CarDetail car={car} />
       </div>
-      <CarReviews />
+      <CarReviews comments={car.comments} />
     </div>
   )
 }
