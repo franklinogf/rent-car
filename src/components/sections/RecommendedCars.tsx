@@ -1,11 +1,14 @@
-import { Button } from '@/components/ui/button'
+import { ShowCars } from '@/components/ShowCars'
+import { cars } from '@/database/cars'
 
 export function RecommendedCars() {
+  const recommendedCars = cars.slice(0, 8)
   return (
-    <section className='mt-4 items-center'>
-      <h2 className='px-10 font-semibold'>Recomendation Car</h2>
-      <div className='mt-3 grid grid-cols-4 gap-x-5 px-10'></div>
-      <Button className='mx-auto block my-5'>Show more Car</Button>
+    <section className='mt-8'>
+      <ShowCars
+        title='Recommended cars'
+        cars={recommendedCars}
+      />
     </section>
   )
 }

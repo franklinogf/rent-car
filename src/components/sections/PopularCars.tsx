@@ -1,26 +1,15 @@
-import { Button } from '@/components/ui/button'
 import { cars } from '@/database/cars'
-import { ShowCars } from '../ShowCars'
+import { ShowCars } from '@/components/ShowCars'
 
 export function PopularCars() {
+  const popularCars = cars.slice(0, 4)
   return (
     <section className='mt-4'>
-      <ViewAll />
-      <ShowCars cars={cars} />
+      <ShowCars
+        title='Popular Car'
+        link='#'
+        cars={popularCars}
+      />
     </section>
-  )
-}
-
-export function ViewAll() {
-  return (
-    <div className='flex justify-between items-center'>
-      <h2 className='font-semibold'>Popular Car</h2>
-      <Button
-        variant='outline'
-        className='text-primary'
-      >
-        View All
-      </Button>
-    </div>
   )
 }
