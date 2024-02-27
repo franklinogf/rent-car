@@ -13,12 +13,18 @@ export function CarReviews() {
         </CardHeader>
 
         <CardContent className='space-y-4'>
-          <BoxComment />
-          <BoxComment />
-          <BoxComment />
-          <BoxComment />
-          <BoxComment />
-          <BoxComment />
+          <BoxComment
+            name='Franklin Omar Gonzalez'
+            rating={1}
+          />
+          <BoxComment
+            name='Darwin Zacarias'
+            rating={2}
+          />
+          <BoxComment
+            name='Alam'
+            rating={4}
+          />
         </CardContent>
       </Card>
     </section>
