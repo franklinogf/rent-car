@@ -8,7 +8,7 @@ export default function CarsLayout({
   return (
     <div className='lg:flex h-full'>
       <Sidebar />
-      <div className='px-5 py-2 w-full'>{children}</div>
+      <div className='w-full p-4'>{children}</div>
     </div>
   )
 }

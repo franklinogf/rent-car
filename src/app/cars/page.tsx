@@ -6,12 +6,12 @@ import { ShowCars } from '@/components/ShowCars'
 
 export default function Page() {
   return (
-    <div className='px-5 py-2'>
+    <>
       <div className='flex justify-center'>
         <LocationPicker />
       </div>
       <ShowCars cars={cars} />
       <Button className='mx-auto block mt-4'>Show more Car</Button>
-    </div>
+    </>
   )
 }
