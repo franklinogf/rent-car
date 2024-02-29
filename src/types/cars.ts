@@ -1,7 +1,7 @@
 type NonEmptyArray<T> = [T, ...T[]]
 
 type CarType = 'Sport' | 'SUV' | 'MPV' | 'Sedan' | 'Coupe' | 'Hatchback'
-type CarFeaturePerson = {
+export type CarFeaturePerson = {
   type: Capitalize<'Person'>
   value: number
 }
