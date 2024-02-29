@@ -5,6 +5,7 @@ import { Slider } from '@/components/ui/slider'
 import { cars } from '@/database/cars'
 import { Car, CarType } from '@/types/cars'
 import { Filters } from '@/types/filters'
+import { Dispatch, MouseEventHandler, SetStateAction, useState } from 'react'
 
 const carsTypes = [...new Set(cars.map((car) => car.type))]
 const carsCapacity = [
@@ -12,42 +13,45 @@ const carsCapacity = [
 ]
 
 export function Sidebar({
-  onChangePrice,
-  onChangeType,
-  onChangeCapacity,
-  filters
+  onChangeFilters
 }: {
-  onChangePrice?: (price: number[]) => void
-  onChangeType: (e: Event) => void
-  onChangeCapacity: (e: Event) => void
-  filters: Filters
+  onChangeFilters: Dispatch<SetStateAction<Filters>>
 }) {
+  const [price, setPrice] = useState([0])
+
+  function handleChangePrice(newPrice: number[]) {
+    setPrice(newPrice)
+    onChangeFilters((prevFilters) => {
+      return {
+        ...prevFilters,
+        price: newPrice
+      }
+    })
+  }
   return (
     <aside className='hidden lg:block flex-grow-0 w-full bg-white border-r-2 border-t-2 px-4 py-2 max-w-56 '>
       <div className='space-y-8 mt-5'>
         <SidebarMenuSection
           title='type'
           items={carsTypes}
-          onChecked={onChangeType}
-          filters={filters}
+          onChecked={onChangeFilters}
         />
         <SidebarMenuSection
-          onChecked={onChangeCapacity}
-          filters={filters}
+          onChecked={onChangeFilters}
           title='capacity'
           items={carsCapacity}
         />
         <SidebarSection title='price'>
           <Slider
-            onValueChange={onChangePrice}
-            value={filters.price}
+            onValueChange={handleChangePrice}
+            value={price}
             max={100}
             min={10}
             step={1}
           />
 
           <span className='text-sm font-semibold text-gray-700/90 mt-4 block'>
-            Max. ${filters.price[0].toFixed(2)}
+            Max. ${price[0]}
           </span>
         </SidebarSection>
       </div>
@@ -67,14 +71,25 @@ export function SidebarSection({ title, children }: { title: string; children: R
 export function SidebarMenuSection({
   title,
   items,
-  onChecked,
-  filters
+  onChecked
 }: {
-  title: keyof Filters
+  title: keyof Exclude<Filters, 'price'>
   items: number[] | CarType[]
-  onChecked: any
-  filters: Filters
+  onChecked: Dispatch<SetStateAction<Filters>>
 }) {
+  const handleChange = (type: keyof Exclude<Filters, 'price'>, value: any) => {
+    onChecked((prevFilters) => {
+      const filterExists = prevFilters[type].find((f) => f === value)
+      const newFilters = filterExists
+        ? prevFilters[type].filter((f) => f !== value)
+        : [...prevFilters[type], value]
+      return {
+        ...prevFilters,
+        [type]: newFilters
+      }
+    })
+  }
+
   return (
     <SidebarSection title={title}>
       <div className='space-y-4'>
@@ -85,11 +100,10 @@ export function SidebarMenuSection({
               className='flex items-center space-x-2'
             >
               <Checkbox
-                checked={filters[title].find((f) => f === item) ? true : false}
-                onClick={onChecked}
-                value={item}
+                onClick={() => handleChange(title, item)}
                 id={`${title}_${index}`}
               />
+
               <Label
                 htmlFor={`${title}_${index}`}
                 className='text-gray-700/90 cursor-pointer'
