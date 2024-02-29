@@ -11,10 +11,11 @@ import { Button } from '@/components/ui/button'
 import { ArrowsLeftRight, ArrowsUpDown } from '@/lib/Icons'
 import { Calendar } from '@/components/ui/calendar'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useContext, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { Calendar as CalendarIcon } from 'lucide-react'
 import { format } from 'date-fns'
+import { CarsContext } from '@/contexts/CarsContext'
 export function PickerCity({
   title,
   placeholder,
