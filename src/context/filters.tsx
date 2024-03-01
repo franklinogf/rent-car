@@ -1,5 +1,5 @@
 import { Filters } from '@/types/filters'
-import { Dispatch, SetStateAction, createContext, useContext, useState } from 'react'
+import { Dispatch, SetStateAction, createContext, useState } from 'react'
 
 interface FiltersContextType {
   filters: Filters

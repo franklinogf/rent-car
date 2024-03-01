@@ -6,7 +6,6 @@ import { cars } from '@/database/cars'
 import { useFilters } from '@/hooks/useFilters'
 import { CarType } from '@/types/cars'
 import { Filters } from '@/types/filters'
-import { useState } from 'react'
 
 const carsTypes = [...new Set(cars.map((car) => car.type))]
 const carsCapacity = [
