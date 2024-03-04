@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { FavoriteHeartButton } from '@/components/FavoriteHeartButton'
 import { Button } from '@/components/ui/button'
 import { Car } from '@/types/cars'
+import Link from 'next/link'
 
 export function CarRating({
   rating,
@@ -122,7 +123,9 @@ export function CarDetail({ car }: { car: Car }) {
             <span className='text-sm'>day</span>
           </div>
           <div>
-            <Button>Rent Now</Button>
+            <Button asChild>
+              <Link href={`/payment/${car.id}`}>Rent Now</Link>
+            </Button>
           </div>
         </div>
       </CardContent>
