@@ -28,9 +28,22 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { CarRating } from '@/components/CarDetail'
+import { BitcoinLogo, MastercardLogo, PaypalLogo, SecurityLogo, VisaLogo } from '@/lib/Logos'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
+import { format } from 'date-fns'
+import { CalendarIcon } from 'lucide-react'
+import { Calendar } from '@/components/ui/calendar'
 
 const formSchema = z.object({
   fullName: z.string().min(2).max(50),
@@ -38,10 +51,10 @@ const formSchema = z.object({
   address: z.string(),
   city: z.string(),
   locationPickUp: z.string(),
-  datePickUp: z.string(),
+  datePickUp: z.date(),
   timePickUp: z.string(),
   locationDropOff: z.string(),
-  dateDropOff: z.string(),
+  dateDropOff: z.date(),
   timeDropOff: z.string(),
   creditCardNumber: z.string().optional(),
   creditCardName: z.string().optional(),
@@ -50,21 +63,44 @@ const formSchema = z.object({
   marketing: z.boolean(),
   termsAndConditions: z.boolean()
 })
+const TAX_FEE = 18 / 100
 export default function Page({ params }: { params: { id: string } }) {
-  const [paymentTab, setPaymentTab] = useState('item-1')
   const car = cars.find((car) => car.id === Number(params.id))
+  const [paymentTab, setPaymentTab] = useState('item-1')
+  const [totalPrice, setTotalPrice] = useState(car?.price)
+  const [tax, setTax] = useState(0)
+  const [subtotal, setSubtotal] = useState(car?.price)
 
+  useEffect(() => {
+    if (!subtotal) {
+      setTax(0)
+      setTotalPrice(0)
+      return
+    }
+    const totalTax = subtotal * TAX_FEE
+    setTax(totalTax)
+    setTotalPrice(totalTax + subtotal)
+  }, [subtotal])
+
+  const today = new Date()
+  const tomorrow = new Date()
+  tomorrow.setDate(today.getDate() + 1)
   const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema)
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      datePickUp: today,
+      dateDropOff: tomorrow
+    }
   })
 
   function handleSumbit(data: z.infer<typeof formSchema>) {
     console.log(data)
   }
   if (!car) return <h1>No existe este carro</h1>
+
   return (
-    <section className='p-4 flex gap-x-4'>
-      <div className='w-3/5'>
+    <section className='p-4 flex flex-col lg:flex-row gap-4'>
+      <div className='order-2 lg:order-1 lg:w-3/5'>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSumbit)}
@@ -153,9 +189,26 @@ export default function Page({ params }: { params: { id: string } }) {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Location</FormLabel>
-                          <FormControl>
-                            <Input {...field} />
-                          </FormControl>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder='Select a location for pick up' />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {['Brooklyn', 'Bronx', 'Queens'].map((item) => (
+                                <SelectItem
+                                  key={item}
+                                  value={item}
+                                >
+                                  {item}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -165,11 +218,40 @@ export default function Page({ params }: { params: { id: string } }) {
                       control={form.control}
                       name='datePickUp'
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className='flex flex-col justify-end'>
                           <FormLabel>Date</FormLabel>
-                          <FormControl>
-                            <Input {...field} />
-                          </FormControl>
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <FormControl>
+                                <Button
+                                  variant={'outline'}
+                                  className={cn(
+                                    'w-[240px] pl-3 text-left font-normal ',
+                                    !field.value && 'text-muted-foreground'
+                                  )}
+                                >
+                                  {field.value ? (
+                                    format(field.value, 'PPP')
+                                  ) : (
+                                    <span>Pick a date</span>
+                                  )}
+                                  <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                                </Button>
+                              </FormControl>
+                            </PopoverTrigger>
+                            <PopoverContent
+                              className='w-auto p-0'
+                              align='start'
+                            >
+                              <Calendar
+                                mode='single'
+                                selected={field.value}
+                                onSelect={field.onChange}
+                                disabled={(date) => date < new Date()}
+                                initialFocus
+                              />
+                            </PopoverContent>
+                          </Popover>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -199,9 +281,26 @@ export default function Page({ params }: { params: { id: string } }) {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Location</FormLabel>
-                          <FormControl>
-                            <Input {...field} />
-                          </FormControl>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder='Select a location for drop off' />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {['Brooklyn', 'Bronx', 'Queens'].map((item) => (
+                                <SelectItem
+                                  key={item}
+                                  value={item}
+                                >
+                                  {item}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -211,11 +310,40 @@ export default function Page({ params }: { params: { id: string } }) {
                       control={form.control}
                       name='dateDropOff'
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className='flex flex-col justify-end'>
                           <FormLabel>Date</FormLabel>
-                          <FormControl>
-                            <Input {...field} />
-                          </FormControl>
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <FormControl>
+                                <Button
+                                  variant={'outline'}
+                                  className={cn(
+                                    'w-[240px] pl-3 text-left font-normal',
+                                    !field.value && 'text-muted-foreground'
+                                  )}
+                                >
+                                  {field.value ? (
+                                    format(field.value, 'PPP')
+                                  ) : (
+                                    <span>Pick a date</span>
+                                  )}
+                                  <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                                </Button>
+                              </FormControl>
+                            </PopoverTrigger>
+                            <PopoverContent
+                              className='w-auto p-0'
+                              align='start'
+                            >
+                              <Calendar
+                                mode='single'
+                                selected={field.value}
+                                onSelect={field.onChange}
+                                disabled={(date) => date < form.getValues('datePickUp')}
+                                initialFocus
+                              />
+                            </PopoverContent>
+                          </Popover>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -259,7 +387,15 @@ export default function Page({ params }: { params: { id: string } }) {
                     className='bg-slate-100'
                     value='item-1'
                   >
-                    <AccordionTrigger className='px-5'>Credit card</AccordionTrigger>
+                    <AccordionTrigger className='px-5'>
+                      <div className='w-full flex justify-between pr-5'>
+                        <span>Credit card</span>
+                        <span className='flex items-center gap-x-2'>
+                          <VisaLogo className='size-10' />
+                          <MastercardLogo className='size-8' />
+                        </span>
+                      </div>
+                    </AccordionTrigger>
                     <AccordionContent className='px-5'>
                       <div className='grid grid-cols-2 gap-5'>
                         <FormField
@@ -323,7 +459,14 @@ export default function Page({ params }: { params: { id: string } }) {
                     value='item-2'
                     disabled={paymentTab === 'item-2'}
                   >
-                    <AccordionTrigger className='px-5'>Paypal</AccordionTrigger>
+                    <AccordionTrigger className='px-5'>
+                      <div className='w-full flex justify-between pr-5'>
+                        <span>Paypal</span>
+                        <span>
+                          <PaypalLogo className='w-16' />
+                        </span>
+                      </div>
+                    </AccordionTrigger>
                     <AccordionContent className='px-5'>
                       <div className='flex justify-center'>
                         <Button>Pay with paypal</Button>
@@ -336,7 +479,14 @@ export default function Page({ params }: { params: { id: string } }) {
                     value='item-3'
                     disabled={paymentTab === 'item-3'}
                   >
-                    <AccordionTrigger className='px-5'>Bitcoin</AccordionTrigger>
+                    <AccordionTrigger className='px-5'>
+                      <div className='w-full flex justify-between pr-5'>
+                        <span>Bitcoin</span>
+                        <span>
+                          <BitcoinLogo className='w-16' />
+                        </span>
+                      </div>
+                    </AccordionTrigger>
                     <AccordionContent className='px-5'>
                       <div className='flex justify-center'>
                         <Button variant='secondary'>Pay with bitcoin</Button>
@@ -400,6 +550,9 @@ export default function Page({ params }: { params: { id: string } }) {
                   />
                   <Button type='submit'>Rent Now</Button>
                   <div className='flex flex-col gap-y-2'>
+                    <span>
+                      <SecurityLogo />
+                    </span>
                     <span className='font-semibold'>All your data are safe</span>
                     <span className='text-sm text-muted-foreground'>
                       We are using the most advanced security to provide you the best experience
@@ -412,8 +565,8 @@ export default function Page({ params }: { params: { id: string } }) {
           </form>
         </Form>
       </div>
-      <div className='w-2/5'>
-        <Card className='sticky top-5'>
+      <div className='order-1 lg:order-2 lg:w-2/5'>
+        <Card className='lg:sticky lg:top-5'>
           <CardHeader>
             <CardTitle>Rental Summary</CardTitle>
             <CardDescription>
@@ -449,11 +602,11 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className='space-y-5 w-full'>
               <article className='flex justify-between'>
                 <span className='text-muted-foreground font-semibold'>Subtotal</span>
-                <span className='font-bold'>${car.price}</span>
+                <span className='font-bold'>${subtotal?.toFixed(2)}</span>
               </article>
               <article className='flex justify-between'>
                 <span className='text-muted-foreground font-semibold'>Tax</span>
-                <span className='font-bold'>$0</span>
+                <span className='font-bold'>${tax.toFixed(2)}</span>
               </article>
               <article className='flex justify-between'>
                 <div className='flex flex-col'>
@@ -463,7 +616,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   </span>
                 </div>
                 <div>
-                  <span className='text-3xl font-bold'>${car.price}</span>
+                  <span className='text-3xl font-bold'>${totalPrice?.toFixed(2)}</span>
                 </div>
               </article>
             </div>
