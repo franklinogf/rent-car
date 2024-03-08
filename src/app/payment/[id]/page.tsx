@@ -31,7 +31,13 @@ import {
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { CarRating } from '@/components/CarDetail'
-import { BitcoinLogo, MastercardLogo, PaypalLogo, SecurityLogo, VisaLogo } from '@/lib/Logos'
+import {
+  BitcoinLogo,
+  MastercardLogo,
+  PaypalLogo,
+  SecurityLogo,
+  VisaLogo
+} from '@/lib/Logos'
 import {
   Select,
   SelectContent,
@@ -39,7 +45,11 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger
+} from '@/components/ui/popover'
 import { cn } from '@/lib/utils'
 import { format } from 'date-fns'
 import { CalendarIcon } from 'lucide-react'
@@ -264,7 +274,14 @@ export default function Page({ params }: { params: { id: string } }) {
                         <FormItem>
                           <FormLabel>Time</FormLabel>
                           <FormControl>
-                            <Input {...field} />
+                            <Input
+                              className='w-[240px] pl-3 text-left font-normal'
+                              type='time'
+                              min='09:00'
+                              max='18:00'
+                              required
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -339,7 +356,9 @@ export default function Page({ params }: { params: { id: string } }) {
                                 mode='single'
                                 selected={field.value}
                                 onSelect={field.onChange}
-                                disabled={(date) => date < form.getValues('datePickUp')}
+                                disabled={(date) =>
+                                  date < form.getValues('datePickUp')
+                                }
                                 initialFocus
                               />
                             </PopoverContent>
@@ -356,7 +375,14 @@ export default function Page({ params }: { params: { id: string } }) {
                         <FormItem>
                           <FormLabel>Time</FormLabel>
                           <FormControl>
-                            <Input {...field} />
+                            <Input
+                              className='w-[240px] pl-3 text-left font-normal'
+                              type='time'
+                              min='09:00'
+                              max='18:00'
+                              required
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -501,7 +527,8 @@ export default function Page({ params }: { params: { id: string } }) {
                 <CardTitle>Confirmation</CardTitle>
                 <CardDescription className='flex justify-between'>
                   <span>
-                    We are getting to the end. Just fews more clicks and your rental is ready.
+                    We are getting to the end. Just fews more clicks and your
+                    rental is ready.
                   </span>
                   <span className='text-xs'>Step 4 of 4</span>
                 </CardDescription>
@@ -521,7 +548,8 @@ export default function Page({ params }: { params: { id: string } }) {
                             />
                           </FormControl>
                           <FormLabel>
-                            I agree with sending Marketing and newsletter emails.
+                            I agree with sending Marketing and newsletter
+                            emails.
                           </FormLabel>
                         </div>
                         <FormMessage />
@@ -541,7 +569,8 @@ export default function Page({ params }: { params: { id: string } }) {
                             />
                           </FormControl>
                           <FormLabel>
-                            I agree with our terms and conditions and privacy policy.
+                            I agree with our terms and conditions and privacy
+                            policy.
                           </FormLabel>
                         </div>
                         <FormMessage />
@@ -553,10 +582,12 @@ export default function Page({ params }: { params: { id: string } }) {
                     <span>
                       <SecurityLogo />
                     </span>
-                    <span className='font-semibold'>All your data are safe</span>
+                    <span className='font-semibold'>
+                      All your data are safe
+                    </span>
                     <span className='text-sm text-muted-foreground'>
-                      We are using the most advanced security to provide you the best experience
-                      ever.
+                      We are using the most advanced security to provide you the
+                      best experience ever.
                     </span>
                   </div>
                 </div>
@@ -570,8 +601,8 @@ export default function Page({ params }: { params: { id: string } }) {
           <CardHeader>
             <CardTitle>Rental Summary</CardTitle>
             <CardDescription>
-              Prices will change depending on the length of the rental and the price of your rental
-              car.
+              Prices will change depending on the length of the rental and the
+              price of your rental car.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -601,7 +632,9 @@ export default function Page({ params }: { params: { id: string } }) {
           <CardFooter>
             <div className='space-y-5 w-full'>
               <article className='flex justify-between'>
-                <span className='text-muted-foreground font-semibold'>Subtotal</span>
+                <span className='text-muted-foreground font-semibold'>
+                  Subtotal
+                </span>
                 <span className='font-bold'>${subtotal?.toFixed(2)}</span>
               </article>
               <article className='flex justify-between'>
@@ -610,13 +643,17 @@ export default function Page({ params }: { params: { id: string } }) {
               </article>
               <article className='flex justify-between'>
                 <div className='flex flex-col'>
-                  <span className='font-semibold text-xl'>Total Rental Price</span>
+                  <span className='font-semibold text-xl'>
+                    Total Rental Price
+                  </span>
                   <span className='text-muted-foreground text-sm'>
                     Overall price and includes rental discount
                   </span>
                 </div>
                 <div>
-                  <span className='text-3xl font-bold'>${totalPrice?.toFixed(2)}</span>
+                  <span className='text-3xl font-bold'>
+                    ${totalPrice?.toFixed(2)}
+                  </span>
                 </div>
               </article>
             </div>
