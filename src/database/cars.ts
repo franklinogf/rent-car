@@ -8,6 +8,7 @@ export const cars: Car[] = [
     type: 'Sport',
     image: '/cars/car2.png',
     price: 99,
+    description: '',
     features: [
       {
         type: 'Gear',
@@ -42,6 +43,7 @@ export const cars: Car[] = [
     type: 'SUV',
     image: '/cars/car1.png',
     price: 30,
+    description: '',
     features: [
       {
         type: 'Gear',
@@ -60,6 +62,7 @@ export const cars: Car[] = [
     type: 'Sport',
     image: '/cars/car3.png',
     price: 30,
+    description: '',
     features: [
       {
         type: 'Gear',
@@ -78,6 +81,7 @@ export const cars: Car[] = [
     type: 'SUV',
     image: '/cars/car4.png',
     price: 30,
+    description: '',
     features: [
       {
         type: 'Gear',
@@ -96,6 +100,7 @@ export const cars: Car[] = [
     type: 'Sport',
     image: '/cars/car5.png',
     price: 30,
+    description: '',
     features: [
       {
         type: 'Gear',
@@ -114,6 +119,7 @@ export const cars: Car[] = [
     type: 'Sport',
     image: '/cars/car6.png',
     price: 30,
+    description: '',
     features: [
       {
         type: 'Gear',
@@ -132,6 +138,7 @@ export const cars: Car[] = [
     type: 'SUV',
     image: '/cars/car7.png',
     price: 30,
+    description: '',
     features: [
       {
         type: 'Gear',
@@ -150,6 +157,7 @@ export const cars: Car[] = [
     type: 'SUV',
     image: '/cars/car8.png',
     price: 30,
+    description: '',
     features: [
       {
         type: 'Gear',
@@ -168,6 +176,7 @@ export const cars: Car[] = [
     type: 'Hatchback',
     image: '/cars/car9.png',
     price: 30,
+    description: '',
     features: [
       {
         type: 'Gear',
@@ -186,6 +195,7 @@ export const cars: Car[] = [
     type: 'SUV',
     image: '/cars/car10.png',
     price: 30,
+    description: '',
     features: [
       {
         type: 'Gear',
@@ -204,6 +214,7 @@ export const cars: Car[] = [
     type: 'SUV',
     image: '/cars/car11.png',
     price: 30,
+    description: '',
     features: [
       {
         type: 'Gear',
@@ -222,6 +233,7 @@ export const cars: Car[] = [
     type: 'SUV',
     image: '/cars/car12.png',
     price: 30,
+    description: '',
     features: [
       {
         type: 'Person',

@@ -30,5 +30,5 @@ export interface Car {
   features: NonEmptyArray<CarFeature>
   price: number
   comments?: CarComment[]
-  rating: number
+  rating?: number
 }
