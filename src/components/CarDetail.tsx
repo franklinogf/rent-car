@@ -10,7 +10,7 @@ export function CarRating({
   withReviews = true
 }: {
   rating: number
-  amountOfReviews: number
+  amountOfReviews?: number
   withReviews?: boolean
 }) {
   const filledStars = Math.floor(rating)
