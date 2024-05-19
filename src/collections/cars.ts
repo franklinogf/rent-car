@@ -18,7 +18,6 @@ export const Cars: CollectionConfig = {
     disableDuplicate: true,
   },
   hooks: {
-    // beforeChange: [beforeChangeHook],
     afterChange: [afterChangeHook],
   },
   fields: [
