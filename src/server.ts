@@ -27,9 +27,6 @@ const start = async () => {
   });
 
   app.listen(PORT, async () => {
-    console.log(
-      "Express is now listening for incoming connections on port 3000."
-    );
     payload.logger.info(
       `Next.js app url: ${process.env.NEXT_PUBLIC_SERVER_URL}`
     );
