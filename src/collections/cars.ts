@@ -1,7 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import { CollectionAfterChangeHook } from "payload/types";
 
-const afterChangeHook: CollectionAfterChangeHook = async ({ doc }) => {
+const afterChangeHook: CollectionAfterChangeHook = async ({ doc, req }) => {
   return { ...doc, slug: `${doc.id}-${doc.model}` };
 };
 
@@ -9,9 +9,9 @@ export const Cars: CollectionConfig = {
   slug: "cars",
   admin: {
     useAsTitle: "model",
-    preview: ({ slug }) => {
-      if (slug) {
-        return `${process.env.NEXT_PUBLIC_SERVER_URL}/cars/${slug}`;
+    preview: (doc) => {
+      if (doc?.slug) {
+        return `${process.env.NEXT_PUBLIC_SERVER_URL}/cars/${doc.slug}`;
       }
       return null;
     },
@@ -25,7 +25,7 @@ export const Cars: CollectionConfig = {
       label: "Slug (Created automatic)",
       name: "slug",
       type: "text",
-      required: true,
+      unique: true,
       admin: {
         position: "sidebar",
         readOnly: true,
