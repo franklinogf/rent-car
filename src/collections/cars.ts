@@ -1,13 +1,8 @@
 import { CollectionConfig } from "payload/types";
-import { CollectionBeforeChangeHook } from "payload/types";
+import { CollectionAfterChangeHook } from "payload/types";
 
-const beforeChangeHook: CollectionBeforeChangeHook = async ({
-  data, // incoming data to update or create with
-  req, // full express request
-  operation, // name of the operation ie. 'create', 'update'
-  originalDoc, // original document
-}) => {
-  return { ...data, slug: `${originalDoc.id}-${data.model}` };
+const afterChangeHook: CollectionAfterChangeHook = async ({ doc }) => {
+  return { ...doc, slug: `${doc.id}-${doc.model}` };
 };
 
 export const Cars: CollectionConfig = {
@@ -15,22 +10,26 @@ export const Cars: CollectionConfig = {
   admin: {
     useAsTitle: "model",
     preview: ({ slug }) => {
-      return `${process.env.NEXT_PUBLIC_SERVER_URL}/cars/${slug}`;
+      if (slug) {
+        return `${process.env.NEXT_PUBLIC_SERVER_URL}/cars/${slug}`;
+      }
+      return null;
     },
     disableDuplicate: true,
-    defaultColumns: ["model", "type", "price"],
   },
   hooks: {
-    beforeChange: [beforeChangeHook],
+    // beforeChange: [beforeChangeHook],
+    afterChange: [afterChangeHook],
   },
   fields: [
     {
+      label: "Slug (Created automatic)",
       name: "slug",
       type: "text",
       required: true,
       admin: {
+        position: "sidebar",
         readOnly: true,
-        hidden: true,
       },
     },
     {
@@ -120,6 +119,9 @@ export const Cars: CollectionConfig = {
       name: "image",
       relationTo: "car-images",
       required: true,
+      admin: {
+        position: "sidebar",
+      },
     },
   ],
 };
