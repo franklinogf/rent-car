@@ -1,0 +1,125 @@
+import { CollectionConfig } from "payload/types";
+import { CollectionBeforeChangeHook } from "payload/types";
+
+const beforeChangeHook: CollectionBeforeChangeHook = async ({
+  data, // incoming data to update or create with
+  req, // full express request
+  operation, // name of the operation ie. 'create', 'update'
+  originalDoc, // original document
+}) => {
+  return { ...data, slug: `${originalDoc.id}-${data.model}` };
+};
+
+export const Cars: CollectionConfig = {
+  slug: "cars",
+  admin: {
+    useAsTitle: "model",
+    preview: ({ slug }) => {
+      return `${process.env.NEXT_PUBLIC_SERVER_URL}/cars/${slug}`;
+    },
+    disableDuplicate: true,
+    defaultColumns: ["model", "type", "price"],
+  },
+  hooks: {
+    beforeChange: [beforeChangeHook],
+  },
+  fields: [
+    {
+      name: "slug",
+      type: "text",
+      required: true,
+      admin: {
+        readOnly: true,
+        hidden: true,
+      },
+    },
+    {
+      type: "row",
+      fields: [
+        {
+          name: "brand",
+          type: "relationship",
+          relationTo: "brands",
+          required: true,
+        },
+        {
+          name: "type",
+          type: "relationship",
+          relationTo: "types",
+          required: true,
+        },
+      ],
+    },
+    {
+      name: "model",
+      type: "text",
+      required: true,
+      admin: {
+        width: "30%",
+      },
+    },
+    {
+      name: "price",
+      type: "number",
+      min: 10,
+      required: true,
+      admin: {
+        width: "30%",
+      },
+    },
+    {
+      name: "description",
+      type: "textarea",
+      required: true,
+      admin: {
+        width: "70%",
+      },
+    },
+    {
+      name: "features",
+      type: "group",
+      fields: [
+        {
+          name: "gear",
+          type: "radio",
+          options: [
+            {
+              label: "Automatic",
+              value: "Automatic",
+            },
+            {
+              label: "Manual",
+              value: "Manual",
+            },
+          ],
+          required: true,
+        },
+        {
+          label: "Amount of persons that fit",
+          name: "persons",
+          min: 1,
+          type: "number",
+          required: true,
+          admin: {
+            width: "30%",
+          },
+        },
+        {
+          label: "Fuel consumption",
+          name: "fuel",
+          min: 1,
+          type: "number",
+          admin: {
+            width: "30%",
+          },
+        },
+      ],
+    },
+    {
+      type: "upload",
+      name: "image",
+      relationTo: "car-images",
+      required: true,
+    },
+  ],
+};
