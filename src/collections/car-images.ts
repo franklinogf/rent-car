@@ -2,6 +2,9 @@ import { CollectionConfig } from "payload/types";
 
 export const CarImages: CollectionConfig = {
   slug: "car-images",
+  admin: {
+    disableDuplicate: true,
+  },
   upload: {
     staticURL: "/cars",
     staticDir: "/public/cars",
