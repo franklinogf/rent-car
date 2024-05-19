@@ -7,7 +7,7 @@ export const CarImages: CollectionConfig = {
   },
   upload: {
     staticURL: "/cars",
-    staticDir: "/public/cars",
+    staticDir: "cars",
     adminThumbnail: "thumbnail",
     mimeTypes: ["image/*"],
     imageSizes: [
@@ -36,6 +36,7 @@ export const CarImages: CollectionConfig = {
     {
       name: "alt",
       type: "text",
+      required: true,
     },
   ],
 };
