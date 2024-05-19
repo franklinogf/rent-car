@@ -1,9 +1,14 @@
-import Logo from '@/components/Logo'
-import Link from 'next/link'
+import Logo from "@/components/Logo";
+import Link from "next/link";
 
-const AboutLinks = ['How it work', 'Featured', 'Partnership', 'Bussiness Relation']
-const CommunityLinks = ['Events', 'Blog', 'Podcast', 'Invite a friend']
-const SocialLinks = ['Discord', 'Instagram', 'X', 'Facebook']
+const AboutLinks = [
+  "How it work",
+  "Featured",
+  "Partnership",
+  "Bussiness Relation",
+];
+const CommunityLinks = ["Events", "Blog", "Podcast", "Invite a friend"];
+const SocialLinks = ["Discord", "Instagram", "X", "Facebook"];
 
 function FooterMenu({ title, items }: { title: string; items: string[] }) {
   return (
@@ -19,23 +24,24 @@ function FooterMenu({ title, items }: { title: string; items: string[] }) {
             >
               {item}
             </Link>
-          )
+          );
         })}
       </nav>
     </article>
-  )
+  );
 }
 export function Footer() {
   return (
-    <footer className='mx-auto px-10 py-5 shadow-sm bg-white'>
+    <footer className='w-full px-10 py-5 shadow-sm bg-white lg:px-20'>
       <div className='flex flex-col gap-y-4 lg:gap-y-0 lg:flex-row justify-between'>
-        <div>
+        <div className='flex flex-col text-center items-center lg:items-start lg:text-left'>
           <h2 className='text-primary uppercase font-semibold text-2xl'>
             <Logo />
           </h2>
-          <span className='text-sm max-w-xs block'>
-            Our vision is to provide convenience and help increase your sales business.
-          </span>
+          <p className='text-sm max-w-xs'>
+            Our vision is to provide convenience and help increase your sales
+            business.
+          </p>
         </div>
         <div className='flex flex-col md:flex-row md:justify-around lg:justify-between gap-y-5 lg:gap-y-0 lg:gap-x-10'>
           <FooterMenu
@@ -63,5 +69,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

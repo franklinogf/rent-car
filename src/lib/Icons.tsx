@@ -1,7 +1,7 @@
-import clsx from 'clsx'
+import clsx from "clsx";
 
 interface IconClassName {
-  className?: string
+  className?: string;
 }
 
 export function HeartIcon({ className }: IconClassName) {
@@ -11,7 +11,7 @@ export function HeartIcon({ className }: IconClassName) {
       viewBox='0 0 24 24'
       strokeWidth='1'
       stroke='currentColor'
-      className={clsx('size-6', className)}
+      className={clsx("size-6", className)}
     >
       <path
         strokeLinecap='round'
@@ -19,12 +19,12 @@ export function HeartIcon({ className }: IconClassName) {
         d='M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z'
       />
     </svg>
-  )
+  );
 }
 export function PeopleIcon({ className }: IconClassName) {
   return (
     <svg
-      className={clsx('size-6', className)}
+      className={clsx("size-6", className)}
       aria-hidden='true'
       fill='none'
       strokeWidth='1.5'
@@ -37,18 +37,18 @@ export function PeopleIcon({ className }: IconClassName) {
         clipRule='evenodd'
       />
     </svg>
-  )
+  );
 }
 export function SteeringIcon({ className }: IconClassName) {
   return (
     <svg
-      className={clsx('size-6', className)}
+      className={clsx("size-6", className)}
       fill='#000000'
       viewBox='0 0 256 256'
     >
       <path d='M128,152a12,12,0,1,1,12-12A12,12,0,0,1,128,152Zm104-24A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128ZM40,128v.33a135.93,135.93,0,0,1,176,0V128a88,88,0,0,0-176,0Zm67.5,85.58L90.45,168H49.63A88.35,88.35,0,0,0,107.5,213.58ZM128,216c.83,0,1.66,0,2.49,0l20.07-53.57a16.07,16.07,0,0,1,15-10.39h47.12c.38-1.31.72-2.64,1-4a120,120,0,0,0-171.4,0c.31,1.34.65,2.67,1,4H90.45a16.08,16.08,0,0,1,15,10.4l20,53.56C126.31,216,127.15,216,128,216Zm78.37-48H165.55l-17.09,45.59A88.34,88.34,0,0,0,206.37,168Z'></path>
     </svg>
-  )
+  );
 }
 
 export function ArrowsUpDown({ className }: IconClassName) {
@@ -58,7 +58,7 @@ export function ArrowsUpDown({ className }: IconClassName) {
       viewBox='0 0 24 24'
       strokeWidth={1}
       stroke='currentColor'
-      className={clsx('size-6', className)}
+      className={clsx("size-6", className)}
     >
       <path
         strokeLinecap='round'
@@ -66,7 +66,7 @@ export function ArrowsUpDown({ className }: IconClassName) {
         d='M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5'
       />
     </svg>
-  )
+  );
 }
 export function ArrowsLeftRight({ className }: IconClassName) {
   return (
@@ -75,7 +75,7 @@ export function ArrowsLeftRight({ className }: IconClassName) {
       viewBox='0 0 24 24'
       strokeWidth={1.5}
       stroke='currentColor'
-      className={clsx('size-6', className)}
+      className={clsx("size-6", className)}
     >
       <path
         strokeLinecap='round'
@@ -83,7 +83,7 @@ export function ArrowsLeftRight({ className }: IconClassName) {
         d='M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5'
       />
     </svg>
-  )
+  );
 }
 
 export function SettingsIcon({ className }: IconClassName) {
@@ -93,7 +93,7 @@ export function SettingsIcon({ className }: IconClassName) {
       viewBox='0 0 24 24'
       strokeWidth={1.5}
       stroke='currentColor'
-      className={clsx('size-6', className)}
+      className={clsx("size-6", className)}
     >
       <path
         strokeLinecap='round'
@@ -106,7 +106,7 @@ export function SettingsIcon({ className }: IconClassName) {
         d='M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
       />
     </svg>
-  )
+  );
 }
 
 export function MenuIcon({ className }: IconClassName) {
@@ -117,7 +117,7 @@ export function MenuIcon({ className }: IconClassName) {
       viewBox='0 0 24 24'
       strokeWidth={1.5}
       stroke='currentColor'
-      className={clsx('size-6', className)}
+      className={clsx("size-6", className)}
     >
       <path
         strokeLinecap='round'
@@ -125,5 +125,5 @@ export function MenuIcon({ className }: IconClassName) {
         d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
       />
     </svg>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 export function CarGallery() {
   return (
@@ -42,5 +42,5 @@ export function CarGallery() {
         </div>
       </div>
     </div>
-  )
+  );
 }

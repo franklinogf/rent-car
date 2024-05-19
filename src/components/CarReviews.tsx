@@ -1,11 +1,10 @@
-import { ReviewComment } from './ReviewComment'
-import { PopularCars } from '@/components/sections/PopularCars'
-import { Button } from './ui/button'
-import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
-import { type Car } from '@/types/cars'
-import { Alert, AlertTitle } from './ui/alert'
+import { ReviewComment } from "./ReviewComment";
+import { Button } from "./ui/button";
+import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
+import { type Car } from "@/types/cars";
+import { Alert, AlertTitle } from "./ui/alert";
 
-export function CarReviews({ comments }: { comments?: Car['comments'] }) {
+export function CarReviews({ comments }: { comments?: Car["comments"] }) {
   return (
     <section className='w-full'>
       <Card>
@@ -28,7 +27,9 @@ export function CarReviews({ comments }: { comments?: Car['comments'] }) {
             ))
           ) : (
             <Alert className='mt-5 border-secondary'>
-              <AlertTitle className='text-center text-bold text-xl'>No comments yet</AlertTitle>
+              <AlertTitle className='text-center text-bold text-xl'>
+                No comments yet
+              </AlertTitle>
             </Alert>
           )}
         </CardContent>
@@ -44,7 +45,6 @@ export function CarReviews({ comments }: { comments?: Car['comments'] }) {
           </CardFooter>
         )}
       </Card>
-      <PopularCars />
     </section>
-  )
+  );
 }

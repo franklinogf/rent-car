@@ -1,29 +1,33 @@
-import { Button, buttonVariants } from '@/components/ui/button'
-import Image from 'next/image'
-import { type VariantProps } from 'class-variance-authority'
+import { Button, buttonVariants } from "@/components/ui/button";
+import Image from "next/image";
+import { type VariantProps } from "class-variance-authority";
 
-export function Car({
-  bg = '/images/bg1.png',
-  buttonVariant
-}: {
-  bg?: string
-  buttonVariant?: VariantProps<typeof buttonVariants>['variant']
-}) {
+interface PreviewCarCardProps {
+  background: string;
+  title: string;
+  description: string;
+  buttonVariant?: VariantProps<typeof buttonVariants>["variant"];
+}
+
+export function PreviewCarCard({
+  background,
+  buttonVariant,
+  title,
+  description,
+}: PreviewCarCardProps) {
   return (
     <article
-      className='bg-blue-400 text-white relative p-4 w-full max-w-md h-[365px] bg-cover bg-no-repeat rounded-[10px]'
-      style={{ backgroundImage: `url('${bg}')` }}
+      className='text-white relative p-4 w-full max-w-md h-[365px] bg-cover bg-no-repeat rounded-[10px]'
+      style={{ backgroundImage: `url('${background}')` }}
     >
       <div className='grid grid-cols w-80 gap-5'>
-        <h2 className='font-bold text-2xl max-w-60'>The Best Platform for Car Rental</h2>
-        <p className='font-light text-sm max-w-60'>
-          Ease of doing a carretal safety and rellably. Of course at low price.
-        </p>
+        <h2 className='font-bold text-2xl max-w-60'>{title}</h2>
+        <p className='font-light text-sm max-w-60'>{description}</p>
         <Button
           variant={buttonVariant}
           className='w-32 text-base'
         >
-          Rental Car
+          Rent Car
         </Button>
       </div>
       <Image
@@ -35,17 +39,23 @@ export function Car({
         // style={{ height: 'auto', width: 'auto' }}
       />
     </article>
-  )
+  );
 }
 
 export function PreviewCars() {
   return (
     <section className='w-full flex flex-col justify-center gap-y-5 lg:flex-row lg:justify-center lg:gap-x-5 mx-auto place-items-center'>
-      <Car />
-      <Car
-        bg='/images/bg2.png'
+      <PreviewCarCard
+        title='The Best Platform for Car Rental'
+        description='Ease of doing a carretal safety and rellably. Of course at low price.'
+        background='/images/bg1.png'
+      />
+      <PreviewCarCard
+        title='The Best Platform for Car Rental'
+        description='Ease of doing a carretal safety and rellably. Of course at low price.'
+        background='/images/bg2.png'
         buttonVariant='secondary'
       />
     </section>
-  )
+  );
 }

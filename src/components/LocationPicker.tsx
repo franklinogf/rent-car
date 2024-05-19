@@ -1,28 +1,32 @@
-'use client'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+"use client";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
-import { Button } from '@/components/ui/button'
-import { ArrowsLeftRight, ArrowsUpDown } from '@/lib/Icons'
-import { Calendar } from '@/components/ui/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { ChangeEvent, useState } from 'react'
-import { cn } from '@/lib/utils'
-import { Calendar as CalendarIcon } from 'lucide-react'
-import { format } from 'date-fns'
+  SelectValue,
+} from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { ArrowsLeftRight, ArrowsUpDown } from "@/lib/Icons";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { ChangeEvent, useState } from "react";
+import { cn } from "@/lib/utils";
+import { Calendar as CalendarIcon } from "lucide-react";
+import { format } from "date-fns";
 export function PickerCity({
   title,
   placeholder,
-  items
+  items,
 }: {
-  title: string
-  placeholder: string
-  items: string[]
+  title: string;
+  placeholder: string;
+  items: string[];
 }) {
   return (
     <div>
@@ -43,19 +47,25 @@ export function PickerCity({
         </SelectContent>
       </Select>
     </div>
-  )
+  );
 }
 
-export function PickerTime({ title, placeholder }: { title: string; placeholder: string }) {
-  const [time, setTime] = useState<string>('')
+export function PickerTime({
+  title,
+  placeholder,
+}: {
+  title: string;
+  placeholder: string;
+}) {
+  const [time, setTime] = useState<string>("");
 
   function handleTimeChange(e: ChangeEvent) {
-    const input = e.target as HTMLInputElement
-    const date = new Date()
-    const [hours, minutes] = input.value.split(':')
-    date.setHours(Number(hours))
-    date.setMinutes(Number(minutes))
-    setTime(format(date, 'HH:mm'))
+    const input = e.target as HTMLInputElement;
+    const date = new Date();
+    const [hours, minutes] = input.value.split(":");
+    date.setHours(Number(hours));
+    date.setMinutes(Number(minutes));
+    setTime(format(date, "HH:mm"));
   }
   return (
     <div className='grid place-content-center'>
@@ -63,13 +73,13 @@ export function PickerTime({ title, placeholder }: { title: string; placeholder:
       <Popover>
         <PopoverTrigger asChild>
           <Button
-            variant={'outline'}
+            variant={"outline"}
             className={cn(
-              'justify-start text-left font-normal text-xs text-gray-400 border-none h-6 px-4 w-full',
-              time === '' && 'text-muted-foreground'
+              "justify-start text-left font-normal text-xs text-gray-400 border-none h-6 px-4 w-full",
+              time === "" && "text-muted-foreground"
             )}
           >
-            {time !== '' ? time : placeholder}
+            {time !== "" ? time : placeholder}
           </Button>
         </PopoverTrigger>
         <PopoverContent className='w-auto p-0'>
@@ -82,7 +92,7 @@ export function PickerTime({ title, placeholder }: { title: string; placeholder:
         </PopoverContent>
       </Popover>
     </div>
-  )
+  );
 }
 
 export function Picker({ title }: { title: string }) {
@@ -95,7 +105,7 @@ export function Picker({ title }: { title: string }) {
         <PickerCity
           title='Locations'
           placeholder='Select your city'
-          items={['Brooklyn', 'Bronx', 'Queens']}
+          items={["Brooklyn", "Bronx", "Queens"]}
         />
         <PickerDate
           title='Date'
@@ -107,24 +117,30 @@ export function Picker({ title }: { title: string }) {
         />
       </CardContent>
     </Card>
-  )
+  );
 }
 
 export function LocationPicker() {
   return (
-    <div className='flex flex-col justify-center items-center gap-y-2 w-full max-w-4xl lg:flex-row lg:gap-x-8 lg:relative '>
+    <div className='flex flex-col justify-center items-center gap-y-2 2xl:flex-row 2xl:gap-x-8 2xl:relative '>
       <Picker title='Pick-Up' />
-      <Button className='lg:absolute lg:top-auto shadow-lg rounded-[5%]'>
-        <ArrowsLeftRight className='text-white size-5 stroke-2 hidden lg:inline-block' />
-        <ArrowsUpDown className='text-white size-5 stroke-2 lg:hidden' />
+      <Button className='2xl:absolute 2xl:top-auto shadow-lg rounded-[5%]'>
+        <ArrowsLeftRight className='text-white size-5 stroke-2 hidden 2xl:inline-block' />
+        <ArrowsUpDown className='text-white size-5 stroke-2 2xl:hidden' />
       </Button>
       <Picker title='Drop-Off' />
     </div>
-  )
+  );
 }
 
-export function PickerDate({ title, placeholder }: { title: string; placeholder: string }) {
-  const [date, setDate] = useState<Date>()
+export function PickerDate({
+  title,
+  placeholder,
+}: {
+  title: string;
+  placeholder: string;
+}) {
+  const [date, setDate] = useState<Date>();
 
   return (
     <div className='grid place-content-center'>
@@ -132,14 +148,14 @@ export function PickerDate({ title, placeholder }: { title: string; placeholder:
       <Popover>
         <PopoverTrigger asChild>
           <Button
-            variant={'outline'}
+            variant={"outline"}
             className={cn(
-              'justify-start text-left font-normal text-xs text-gray-400 border-none h-6 px-2',
-              !date && 'text-muted-foreground'
+              "justify-start text-left font-normal text-xs text-gray-400 border-none h-6 px-2",
+              !date && "text-muted-foreground"
             )}
           >
             <CalendarIcon className='mr-2 size-4' />
-            {date ? format(date, 'P') : <span>{placeholder}</span>}
+            {date ? format(date, "P") : <span>{placeholder}</span>}
           </Button>
         </PopoverTrigger>
         <PopoverContent className='w-auto p-0'>
@@ -153,5 +169,5 @@ export function PickerDate({ title, placeholder }: { title: string; placeholder:
         </PopoverContent>
       </Popover>
     </div>
-  )
+  );
 }
