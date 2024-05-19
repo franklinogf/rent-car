@@ -6,9 +6,10 @@ export const CarImages: CollectionConfig = {
     disableDuplicate: true,
   },
   upload: {
-    staticURL: "/cars",
-    staticDir: "cars",
-    adminThumbnail: "thumbnail",
+    staticURL: "/images/cars",
+    staticDir: "images/cars",
+    adminThumbnail: ({ doc }) =>
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/images/cars/${doc.filename}`,
     mimeTypes: ["image/*"],
     imageSizes: [
       {
