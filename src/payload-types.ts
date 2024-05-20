@@ -45,7 +45,7 @@ export interface Car {
  */
 export interface Brand {
   id: string;
-  name?: string | null;
+  name: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -55,7 +55,7 @@ export interface Brand {
  */
 export interface Type {
   id: string;
-  name?: string | null;
+  name: string;
   updatedAt: string;
   createdAt: string;
 }

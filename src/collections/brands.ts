@@ -4,6 +4,7 @@ export const Brands: CollectionConfig = {
   slug: "brands",
   admin: {
     useAsTitle: "name",
+    disableDuplicate: true,
   },
 
   fields: [
@@ -12,6 +13,7 @@ export const Brands: CollectionConfig = {
       name: "name",
       type: "text",
       unique: true,
+      required: true,
       admin: {
         width: "30%",
       },
