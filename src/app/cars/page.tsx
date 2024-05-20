@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { ShowCars } from "@/components/ShowCars";
 import { Sidebar } from "@/components/Sidebar";
 import { cars } from "@/database/cars";
 import { useFilters } from "@/hooks/useFilters";
