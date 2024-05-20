@@ -10,7 +10,7 @@ import { Brands } from "./collections/brands";
 import { CarImages } from "./collections/car-images";
 
 dotenv.config({
-  path: path.resolve(__dirname, "../.env"),
+  path: path.resolve(__dirname, "../../.env"),
 });
 
 export default buildConfig({
@@ -30,7 +30,7 @@ export default buildConfig({
     max: 2000,
   },
   typescript: {
-    outputFile: path.resolve(__dirname, "payload-types.ts"),
+    outputFile: path.resolve(__dirname, "./payload/payload-types.ts"),
   },
 
   // By default, Payload will boot up normally

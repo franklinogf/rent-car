@@ -1,6 +1,6 @@
 import express from "express";
-import { getPayloadClient } from "./payload";
-import { nextApp, nextHandler } from "./next-utils";
+import { getPayloadClient } from "./payload/index.ts";
+import { nextApp, nextHandler } from "./lib/next-utils.ts";
 import path from "path";
 import dotenv from "dotenv";
 
@@ -15,7 +15,7 @@ const start = async () => {
     initOptions: {
       express: app,
       onInit: async (cms) => {
-        cms.logger.info(`Admin URL ${cms.getAdminURL()}`);
+        cms.logger.info("Admin URL " + cms.getAdminURL());
       },
     },
   });
