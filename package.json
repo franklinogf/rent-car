@@ -4,10 +4,21 @@
   "private": true,
   "scripts": {
     "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
-    "build": "next build",
-    "start": "next start",
+    "test:build": "next build",
+    "test:start": "next start",
     "lint": "next lint",
-    "generate:types": "payload generate:types"
+    "generate:types": "payload generate:types",
+    "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload build",
+    "build:server": "tsc --project tsconfig.server.json",
+    "build:next": "next build",
+    "build": "cross-env NODE_ENV=production npm run build:payload && npm run build:server && npm run build:next",
+    "start": "cross-env PAYLOAD_CONFIG_PATH=dist/payload.config.js NODE_ENV=production node dist/server.js",
+    "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/"
+  },
+  "peerDependencies": {
+    "next": "14.0.1",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -30,7 +41,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "lucide-react": "^0.336.0",
-    "next": "^14.1.0",
+    "next": "14.0.1",
     "payload": "^2.18.3",
     "react": "^18",
     "react-day-picker": "^8.10.0",
@@ -48,6 +59,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "copyfiles": "^2.4.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "nodemon": "^3.1.0",
