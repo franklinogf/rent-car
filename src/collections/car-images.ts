@@ -9,7 +9,7 @@ export const CarImages: CollectionConfig = {
     staticURL: "/images/cars",
     staticDir: "images/cars",
     adminThumbnail: ({ doc }) =>
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/images/cars/${doc.filename}`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/${doc.filename}`,
     mimeTypes: ["image/*"],
     imageSizes: [
       {

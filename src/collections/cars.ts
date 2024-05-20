@@ -1,9 +1,5 @@
-import { CollectionConfig } from "payload/types";
-import { CollectionAfterChangeHook } from "payload/types";
-
-const afterChangeHook: CollectionAfterChangeHook = async ({ doc, req }) => {
-  return { ...doc, slug: `${doc.id}-${doc.model}` };
-};
+import type { CollectionConfig } from "payload/types";
+import slugify from "slugify";
 
 export const Cars: CollectionConfig = {
   slug: "cars",
@@ -17,20 +13,7 @@ export const Cars: CollectionConfig = {
     },
     disableDuplicate: true,
   },
-  hooks: {
-    afterChange: [afterChangeHook],
-  },
   fields: [
-    {
-      label: "Slug (Created automatic)",
-      name: "slug",
-      type: "text",
-      unique: true,
-      admin: {
-        position: "sidebar",
-        readOnly: true,
-      },
-    },
     {
       type: "row",
       fields: [
@@ -120,6 +103,29 @@ export const Cars: CollectionConfig = {
       required: true,
       admin: {
         position: "sidebar",
+      },
+    },
+    {
+      label: "Slug",
+      name: "slug",
+      type: "text",
+      unique: true,
+      access: {
+        update: () => false,
+      },
+      admin: {
+        position: "sidebar",
+        description:
+          "Created automatically (can be modified but can't be updated)",
+      },
+      hooks: {
+        beforeValidate: [
+          ({ data, operation }) => {
+            if (operation === "create") {
+              return slugify(data?.model, { lower: true, trim: true });
+            }
+          },
+        ],
       },
     },
   ],
