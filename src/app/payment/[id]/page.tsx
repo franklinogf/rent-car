@@ -1,69 +1,67 @@
-'use client'
-import { cars } from '@/database/cars'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Button } from '@/components/ui/button'
+"use client";
+import { cars } from "@/database/cars";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
-} from '@/components/ui/accordion'
-import { useEffect, useState } from 'react'
-import { BitcoinLogo, MastercardLogo, PaypalLogo, SecurityLogo, VisaLogo } from '@/lib/Logos'
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { useEffect, useState } from "react";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { cn } from '@/lib/utils'
-import { format } from 'date-fns'
-import { CalendarIcon } from 'lucide-react'
-import { Calendar } from '@/components/ui/calendar'
-import { TextInput } from '@/components/payment/inputs/TextInput'
-import { usePaymentForm } from '@/hooks/usePaymentForm'
-import { PaymentFormType } from '@/schemas/payment'
-import { Step } from '@/components/payment/Step'
-import { RentalSummary } from '@/components/payment/RentalSummary'
-import { SelectInput } from '@/components/payment/inputs/SelectInput'
-import { DateInput } from '@/components/payment/inputs/DateInput'
+  BitcoinLogo,
+  MastercardLogo,
+  PaypalLogo,
+  SecurityLogo,
+  VisaLogo,
+} from "@/lib/Logos";
+import { TextInput } from "@/components/payment/inputs/TextInput";
+import { usePaymentForm } from "@/hooks/usePaymentForm";
+import { PaymentFormType } from "@/schemas/payment";
+import { Step } from "@/components/payment/Step";
+import { RentalSummary } from "@/components/payment/RentalSummary";
+import { SelectInput } from "@/components/payment/inputs/SelectInput";
+import { DateInput } from "@/components/payment/inputs/DateInput";
 
-const TAX_FEE = 18 / 100
-export default function Page({ params }: { params: { id: string } }) {
-  const { form } = usePaymentForm()
-  const car = cars.find((car) => car.id === Number(params.id))
-  const [paymentTab, setPaymentTab] = useState('item-1')
-  const [subtotal, setSubtotal] = useState(car?.price ?? 0)
-  const [tax, setTax] = useState(0)
-  const [totalPrice, setTotalPrice] = useState(0)
+const TAX_FEE = 18 / 100;
+export default function Page({
+  params: { id = null },
+}: {
+  params: { id: string | null };
+}) {
+  const { form } = usePaymentForm();
+  const car = cars.find((car) => car.id === Number(id));
+  const [paymentTab, setPaymentTab] = useState("item-1");
+  const [subtotal, setSubtotal] = useState(car?.price ?? 0);
+  const [tax, setTax] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     if (!subtotal) {
-      setTax(0)
-      setTotalPrice(0)
-      return
+      setTax(0);
+      setTotalPrice(0);
+      return;
     }
-    const totalTax = subtotal * TAX_FEE
-    setTax(totalTax)
-    setTotalPrice(totalTax + subtotal)
-  }, [subtotal])
+    const totalTax = subtotal * TAX_FEE;
+    setTax(totalTax);
+    setTotalPrice(totalTax + subtotal);
+  }, [subtotal]);
 
   function handleSumbit(data: PaymentFormType) {
-    console.log(data)
+    console.log(data);
   }
 
-  if (!car) return <h1>No existe este carro</h1>
+  if (!car) return <h1>No existe este carro</h1>;
 
   return (
     <section className='p-4 flex flex-col lg:flex-row gap-4'>
@@ -112,7 +110,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   <div className='grid grid-cols-2 gap-5'>
                     <SelectInput
                       control={form.control}
-                      items={['Brooklyn', 'Bronx', 'Queens']}
+                      items={["Brooklyn", "Bronx", "Queens"]}
                       name='locationPickUp'
                       title='Location'
                       placeholder='Select a location for pick up'
@@ -137,7 +135,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   <div className='grid grid-cols-2 gap-5'>
                     <SelectInput
                       control={form.control}
-                      items={['Brooklyn', 'Bronx', 'Queens']}
+                      items={["Brooklyn", "Bronx", "Queens"]}
                       name='locationDropOff'
                       title='Location'
                       placeholder='Select a location for drop off'
@@ -172,7 +170,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 onValueChange={(value) => setPaymentTab(value)}
               >
                 <AccordionItem
-                  disabled={paymentTab === 'item-1'}
+                  disabled={paymentTab === "item-1"}
                   className='bg-slate-100'
                   value='item-1'
                 >
@@ -246,7 +244,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 <AccordionItem
                   className='bg-slate-100'
                   value='item-2'
-                  disabled={paymentTab === 'item-2'}
+                  disabled={paymentTab === "item-2"}
                 >
                   <AccordionTrigger className='px-5'>
                     <div className='w-full flex justify-between pr-5'>
@@ -266,7 +264,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 <AccordionItem
                   className='bg-slate-100'
                   value='item-3'
-                  disabled={paymentTab === 'item-3'}
+                  disabled={paymentTab === "item-3"}
                 >
                   <AccordionTrigger className='px-5'>
                     <div className='w-full flex justify-between pr-5'>
@@ -302,7 +300,9 @@ export default function Page({ params }: { params: { id: string } }) {
                             onCheckedChange={field.onChange}
                           />
                         </FormControl>
-                        <FormLabel>I agree with sending Marketing and newsletter emails.</FormLabel>
+                        <FormLabel>
+                          I agree with sending Marketing and newsletter emails.
+                        </FormLabel>
                       </div>
                       <FormMessage />
                     </FormItem>
@@ -321,7 +321,8 @@ export default function Page({ params }: { params: { id: string } }) {
                           />
                         </FormControl>
                         <FormLabel>
-                          I agree with our terms and conditions and privacy policy.
+                          I agree with our terms and conditions and privacy
+                          policy.
                         </FormLabel>
                       </div>
                       <FormMessage />
@@ -335,7 +336,8 @@ export default function Page({ params }: { params: { id: string } }) {
                   </span>
                   <span className='font-semibold'>All your data are safe</span>
                   <span className='text-sm text-muted-foreground'>
-                    We are using the most advanced security to provide you the best experience ever.
+                    We are using the most advanced security to provide you the
+                    best experience ever.
                   </span>
                 </div>
               </div>
@@ -355,5 +357,5 @@ export default function Page({ params }: { params: { id: string } }) {
         </div>
       </div>
     </section>
-  )
+  );
 }

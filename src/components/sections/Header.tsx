@@ -1,10 +1,10 @@
-'use client'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+"use client";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import Logo from '@/components/Logo'
-import { HeartIcon, MenuIcon, SettingsIcon } from '@/lib/Icons'
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import Logo from "@/components/Logo";
+import { HeartIcon, MenuIcon, SettingsIcon } from "@/lib/Icons";
 
 import {
   Sheet,
@@ -12,8 +12,8 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetTrigger
-} from '@/components/ui/sheet'
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export default function Header() {
   return (
@@ -43,6 +43,12 @@ export default function Header() {
                   className='hover:text-primary/80'
                 >
                   All Cars
+                </Link>
+                <Link
+                  href='/admin'
+                  className='hover:text-primary/80'
+                >
+                  Admin
                 </Link>
               </SheetClose>
             </nav>
@@ -84,6 +90,12 @@ export default function Header() {
         >
           <Link href='/cars'>All Cars</Link>
         </Button>
+        <Link
+          href='/admin'
+          className='hover:text-primary/80'
+        >
+          Admin
+        </Link>
       </nav>
       <nav className='flex justify-evenly items-center gap-x-1'>
         <Button
@@ -106,5 +118,5 @@ export default function Header() {
         </Avatar>
       </nav>
     </header>
-  )
+  );
 }
